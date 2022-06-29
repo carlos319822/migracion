@@ -40,9 +40,43 @@ h1.example-app-name {
 }
 
 mat-sidenav {
-    width: 30%;
+    width: 15%;
+    background-color: #6750A4;
+    color: rgb(250, 250, 250);
 }
 
 .icon {
     margin-right: 10px;
+    color: rgb(250, 250, 250);
+}
+
+.usu {
+    margin: auto;
+    display: block;
+    width: 80px;
+    height: 70px;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 99% auto;
+}
+
+.des {
+    text-align: center;
+    background-color: #381E72;
+}
+
+.enc {
+    color: rgb(250, 250, 250);
+}
+
+.log {
+    text-align: right;
+    width: 269px;
+    height: 41.26px;
+    left: 0px;
+    top: 400px;
+    background-color: #381E72;
+    color: rgb(250, 250, 250);
 }
