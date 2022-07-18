@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 //Modulos
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 //angular material
 
@@ -18,6 +19,11 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatTableModule} from '@angular/material/table';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+
 
 
 
@@ -37,7 +43,12 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatSidenavModule,
     MatMenuModule,
     MatListModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    HttpClientModule,
+    MatTableModule,
+    MatTooltipModule,
+    MatPaginatorModule,
+    MatSortModule
    ],
    exports:[
     CommonModule,
@@ -53,7 +64,12 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatSidenavModule,
     MatMenuModule,
     MatListModule,
-    MatSlideToggleModule 
+    MatSlideToggleModule,
+    HttpClientModule,
+    MatTableModule,
+    MatTooltipModule,
+    MatPaginatorModule,
+    MatSortModule 
    ]
 })
 export class SharedModule { }

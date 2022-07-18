@@ -1,5 +1,7 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Menu } from 'src/app/interfaces/menu';
+import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,19 +10,18 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  menu: Menu[]=[];
+
+  
   mobileQuery: MediaQueryList;
 
-  //fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
-
-  fillerNav=[
-    {name:"inicio",route:"/dashboard/inicio",icon:"home"}
-  ]
+  
 
   
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(private _menuService: MenuService,changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -33,6 +34,13 @@ export class NavbarComponent implements OnInit {
   shouldRun = true;
 
   ngOnInit(): void {
+    this.cargarMenu();
+  }
+
+  cargarMenu(){
+    this._menuService.getMenu().subscribe(data => {
+      this.menu=data;
+    })
   }
   
 

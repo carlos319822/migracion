@@ -1,0 +1,17 @@
+[{
+        "nombre": "Dashboard",
+        "redirect": "/dashboard"
+    },
+    {
+        "nombre": "Pedido de Articulo",
+        "redirect": "dashboard/pedidoarticulo"
+    },
+    {
+        "nombre": "Atencion de Pedido",
+        "redirect": "/dashboard/atencionpedido"
+    },
+    {
+        "nombre": "Delegar Autoridad",
+        "redirect": "/dashboard/delegarautoridad"
+    }
+]
