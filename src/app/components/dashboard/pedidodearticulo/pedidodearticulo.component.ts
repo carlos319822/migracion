@@ -26,15 +26,19 @@ export class PedidodearticuloComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _pedidodearticuloService :PedidodearticuloService, private _snackBar: MatSnackBar) { }
+  constructor(private _pedidodearticuloService :PedidodearticuloService, private _snackBar: MatSnackBar,private service:PedidodearticuloService) { }
 
   ngOnInit(): void {
     this.cargarPedidos();
   }
 
   cargarPedidos(){
-    this.listPedidos=this._pedidodearticuloService.getPedidodearticulo();
-    this.dataSource= new MatTableDataSource(this.listPedidos)
+    this.service.getPedidodearticulo().subscribe((data:any)=>{
+      this.dataSource= new MatTableDataSource<Pedidodearticulo>(data.result as Pedidodearticulo[]);
+      console.log(data);
+    });
+    /*this.listPedidos=this._pedidodearticuloService.getPedidodearticulo();*/
+    
   }
 
   ngAfterViewInit() {

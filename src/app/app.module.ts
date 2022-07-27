@@ -11,6 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { SharedModule } from './components/shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule} from '@angular/common/http';
+import { PedidodearticuloService } from './services/pedidodearticulo.service';
+import { UserService } from './services/user.service';
 
 
 @NgModule({
@@ -22,10 +25,13 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
+
     
   ],
-  providers: [],
+  providers: [PedidodearticuloService,
+    UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

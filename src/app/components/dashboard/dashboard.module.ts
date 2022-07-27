@@ -7,9 +7,9 @@ import { InicioComponent } from './inicio/inicio.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard.component';
 import { PedidodearticuloComponent } from './pedidodearticulo/pedidodearticulo.component';
-import { AtenciondepedidoComponent } from './atenciondepedido/atenciondepedido.component';
 import { DelegarautoridadComponent } from './delegarautoridad/delegarautoridad.component';
 import { CrearPedidoComponent } from './pedidodearticulo/crear-pedido/crear-pedido.component';
+import { AtencionpedidoComponent } from './pedidodearticulo/atencionpedido/atencionpedido.component';
 
 
 @NgModule({
@@ -18,9 +18,9 @@ import { CrearPedidoComponent } from './pedidodearticulo/crear-pedido/crear-pedi
     InicioComponent,
     NavbarComponent,
     PedidodearticuloComponent,
-    AtenciondepedidoComponent,
     DelegarautoridadComponent,
-    CrearPedidoComponent
+    CrearPedidoComponent,
+    AtencionpedidoComponent,
     
   ],
   imports: [

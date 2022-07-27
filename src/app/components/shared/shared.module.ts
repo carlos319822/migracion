@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 //Modulos
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 //angular material
@@ -23,6 +23,12 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
+import { PedidodearticuloService } from 'src/app/services/pedidodearticulo.service';
+import { UserService } from 'src/app/services/user.service';
 
 
 
@@ -48,7 +54,13 @@ import {MatSortModule} from '@angular/material/sort';
     MatTableModule,
     MatTooltipModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatCardModule,
+    MatGridListModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    FormsModule
+    
    ],
    exports:[
     CommonModule,
@@ -69,7 +81,14 @@ import {MatSortModule} from '@angular/material/sort';
     MatTableModule,
     MatTooltipModule,
     MatPaginatorModule,
-    MatSortModule 
-   ]
+    MatSortModule,
+    MatCardModule,
+    MatGridListModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    FormsModule 
+   ],
+   providers: [PedidodearticuloService,
+    UserService],
 })
 export class SharedModule { }

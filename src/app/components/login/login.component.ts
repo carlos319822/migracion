@@ -1,35 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { timeout } from 'rxjs';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/interfaces/user';
+import { Subscription, timeout } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Response } from '../../interfaces/response';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent  {
 
-  form: FormGroup;
-  loading = false; 
-  constructor(private fb:FormBuilder, private _snackBar: MatSnackBar, private router: Router) {
-    this.form= this.fb.group({
-      usuario:['',Validators.required],
-      password:['',Validators.required]
-    })
-   }
-
-  ngOnInit(): void {
+  loginData={
+    userName:'',
+    password:''
   }
 
-  ingresar(){
-    console.log(this.form)
-    const usuario = this.form.value.usuario;
-    const password = this.form.value.usuario;
+  //form: FormGroup;
+  
+  loading = false; 
+  constructor(private fb:FormBuilder, private _snackBar: MatSnackBar, private router: Router, private service:UserService, private http: HttpClient) {
+    //this.form= fb.group({
+      //usuario:['',Validators.required],
+      //password:['',Validators.required]
+    //})
+   }
+
+  
+
+  login(){
+    
+    this.service.login(this.loginData).subscribe((data:any) => {
+      localStorage.setItem('userName',data.result.userName);
+      localStorage.setItem('token_value',data.result.token);
+      this.Loading();
+      this.router.navigate(['dashboard'])   
+      
+
+    },err=>{
+      this.error();
+     // this.form.reset();
+    })
+  
+  
 
 
-    if(usuario == 'admin' && password == 'admin'){
+   /* if(usuario == 'admin' && password == 'admin'){
       //Redireccionamos al inicio
 
       
@@ -40,8 +60,14 @@ export class LoginComponent implements OnInit {
       this.error();
       this.form.reset();
     }
+    this.user.LoginByEmail(form).subscribe(data =>{
+
+      console.log(data);
+    })*/
+
 
   }
+
 
   error(){
     this._snackBar.open('Usuario o contraseña Incorrectos','',{
