@@ -17,34 +17,42 @@ import { PedidodearticuloService } from '../../../services/pedidodearticulo.serv
 })
 export class PedidodearticuloComponent implements OnInit {
 
-  listPedidos: Pedidodearticulo []=[];
+  
 
   displayedColumns: string[] = ['motivo de solicitud', 'fecha pedido', 'estado', 'observaciones', 'acciones'];
  
   dataSource! : MatTableDataSource<any>;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
+  //@ViewChild(MatPaginator) paginator!: MatPaginator;
+  //@ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _pedidodearticuloService :PedidodearticuloService, private _snackBar: MatSnackBar,private service:PedidodearticuloService) { }
+  constructor(private _snackBar: MatSnackBar,private service:PedidodearticuloService) { }
 
   ngOnInit(): void {
-    this.cargarPedidos();
-  }
-
-  cargarPedidos(){
-    this.service.getPedidodearticulo().subscribe((data:any)=>{
+    this.service.getPedidodearticulo().subscribe((data:any)=> {
       this.dataSource= new MatTableDataSource<Pedidodearticulo>(data.result as Pedidodearticulo[]);
       console.log(data);
     });
-    /*this.listPedidos=this._pedidodearticuloService.getPedidodearticulo();*/
+  }
+
+  cargarPedidos(){
+    /*this.service.getPedidodearticulo().subscribe((data:any)=>{
+      this.dataSource= new MatTableDataSource<Pedidodearticulo>(data.result as Pedidodearticulo[]);
+      console.log(data);
+    });
+    this.listPedidos=this._pedidodearticuloService.getPedidodearticulo();*/
     
   }
 
-  ngAfterViewInit() {
+  actualizarpedido(pedido: Pedidodearticulo){
+    console.log(pedido);
+
+  }
+
+ /* ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-  }
+  }*/
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -54,7 +62,7 @@ export class PedidodearticuloComponent implements OnInit {
   eliminarPedido(index: number){
     console.log(index);
 
-    this._pedidodearticuloService.eliminarPedido(index);
+    this.service.eliminarPedido(index);
     this.cargarPedidos();
 
     this._snackBar.open('El Pedido fue eliminado con exito','',{

@@ -1,3 +1,4 @@
+<!---->
 <div class="container">
     <mat-toolbar>
         <span>Pedido de Articulo</span>
@@ -6,7 +7,7 @@
 
 
 
-    <div *ngIf="listPedidos.length > 0">
+    <div>
 
 
         <mat-form-field appearance="standard">
@@ -21,25 +22,25 @@
 
                 <ng-container matColumnDef="motivo de solicitud">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Motivo de Solicitud </th>
-                    <td mat-cell *matCellDef="let element"> {{element.motivodesolicitud}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.motivo_solicitud}} </td>
                 </ng-container>
 
 
                 <ng-container matColumnDef="fecha pedido">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Pedido </th>
-                    <td mat-cell *matCellDef="let element"> {{element.fechapedido}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.fecha_pedido}} </td>
                 </ng-container>
 
 
                 <ng-container matColumnDef="estado">
                     <th mat-header-cell *matHeaderCellDef> Estado </th>
-                    <td class="estadon" mat-cell *matCellDef="let element"> {{element.estado}} </td>
+                    <td class="estadon" mat-cell *matCellDef="let element"> {{element.autorizado}} </td>
                 </ng-container>
 
 
                 <ng-container matColumnDef="observaciones">
                     <th mat-header-cell *matHeaderCellDef> Observaciones </th>
-                    <td mat-cell *matCellDef="let element"> {{element.observaciones}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.Obs}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="acciones">
@@ -48,7 +49,7 @@
                         <a class="pointer" style="color:#1878b0" matTooltip="ver usuario">
                             <mat-icon>search</mat-icon>
                         </a>
-                        <a class="pointer" style="color:#1f656f" matTooltip="editar usuario">
+                        <a class="pointer" (click)="actualizarpedido(i)" style="color:#1f656f" matTooltip="editar usuario">
                             <mat-icon>edit</mat-icon>
                         </a>
                         <a class="pointer" (click)="eliminarPedido(i)" style="color:red" matTooltip="borrar usuario">
@@ -66,7 +67,7 @@
         </div>
     </div>
 
-    <h2 *ngIf="listPedidos.length==0">No hay Pedidos para mostrar</h2>
+    <h2>No hay Pedidos para mostrar</h2>
 
 
 

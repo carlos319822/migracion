@@ -12,6 +12,7 @@ import { CrearPedidoComponent } from './pedidodearticulo/crear-pedido/crear-pedi
 import { AtencionpedidoComponent } from './pedidodearticulo/atencionpedido/atencionpedido.component';
 
 
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -29,6 +30,8 @@ import { AtencionpedidoComponent } from './pedidodearticulo/atencionpedido/atenc
     SharedModule,
     
   ],
+
+  entryComponents:[CrearPedidoComponent]
   
 })
 export class DashboardModule { }

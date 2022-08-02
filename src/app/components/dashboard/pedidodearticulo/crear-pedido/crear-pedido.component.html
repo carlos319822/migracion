@@ -14,7 +14,7 @@
 
         <mat-card style="margin-top: 10px">
 
-            <form>
+            <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit">
 
                 <mat-grid-list cols="4" rowHeight="70px">
 
@@ -22,7 +22,7 @@
                     <mat-grid-tile [colspan]="1" [rowspan]="1">
                         <mat-form-field class="ancho" appearance="fill">
                             <mat-label>Piso Destino</mat-label>
-                            <mat-select>
+                            <mat-select formControlName="piso_destino">
                                 <mat-option *ngFor="let item of piso" [value]="item">
                                     {{item}}
                                 </mat-option>
@@ -33,7 +33,7 @@
                     <mat-grid-tile [colspan]="2" [rowspan]="2">
                         <mat-form-field class="ancho">
                             <mat-label>Articulo</mat-label>
-                            <mat-select>
+                            <mat-select formControlName="articulo">
                                 <mat-option *ngFor="let item of articulo" [value]="item">
                                     {{item}}
                                 </mat-option>
@@ -45,7 +45,7 @@
                     <mat-grid-tile [colspan]="1" [rowspan]="2">
                         <mat-form-field class="ancho">
                             <mat-label>Cantidad</mat-label>
-                            <input matInput>
+                            <input matInput formControlName="cantidad">
                         </mat-form-field>
                     </mat-grid-tile>
 
@@ -54,7 +54,7 @@
                     <mat-grid-tile [colspan]="1" [rowspan]="1">
                         <mat-form-field class="ancho" appearance="fill">
                             <mat-label>Cargado al Pro/Prg/pry</mat-label>
-                            <mat-select>
+                            <mat-select formControlName="cargado_pro">
                                 <mat-option *ngFor="let item of cargado" [value]="item">
                                     {{item}}
                                 </mat-option>
@@ -67,21 +67,21 @@
                     <mat-grid-tile [colspan]="1" [rowspan]="2">
                         <mat-form-field class="ancho">
                             <mat-label>Motivo</mat-label>
-                            <input matInput>
+                            <input matInput formControlName="motivo_solicitud">
                         </mat-form-field>
                     </mat-grid-tile>
 
                     <mat-grid-tile [colspan]="3" [rowspan]="2">
                         <mat-form-field class="ancho">
-                            <mat-label>Motivo de Solicitud</mat-label>
-                            <input matInput>
+                            <mat-label>Observaciones</mat-label>
+                            <input matInput formControlName="Obs">
                         </mat-form-field>
                     </mat-grid-tile>
 
                     <mat-grid-tile [colspan]="1" [rowspan]="2">
                         <mat-form-field class="ancho">
                             <mat-label>Observaciones</mat-label>
-                            <input matInput>
+                            <input matInput formControlName="obser">
                         </mat-form-field>
                     </mat-grid-tile>
 
@@ -128,10 +128,15 @@
 
 
 
-
+                <button class="button" mat-menu-item mat_raised-button [disabled]="!pedidoForm.valid">Enviar <mat-icon>mail</mat-icon> </button>
 
             </form>
 
+
+
+
         </mat-card>
+
+
     </div>
 </body>

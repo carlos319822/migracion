@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Pedidodearticulo } from '../interfaces/pedidodearticulo';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -25,13 +25,27 @@ export class PedidodearticuloService {
   constructor(private http: HttpClient) { }
 
   getPedidodearticulo(){
-    /*return this.listPedidos.slice();*/
+
+
     return this.http.get(this.baseUrl);
+    /*return this.listPedidos.slice();
+
+    let auth_token = localStorage.getItem('token_value');
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    })
+
+    return this.http.get(this.baseUrl, {headers:headers});*/
   }
 
   eliminarPedido(index:number){
     /*this.listPedidos.splice(index,1);*/
     
+  }
+
+  crearpedido(pedido: Pedidodearticulo){
+    return this.http.post(this.baseUrl, pedido);
   }
 
 }

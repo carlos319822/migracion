@@ -29,6 +29,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import { PedidodearticuloService } from 'src/app/services/pedidodearticulo.service';
 import { UserService } from 'src/app/services/user.service';
+import { MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -59,7 +60,8 @@ import { UserService } from 'src/app/services/user.service';
     MatGridListModule,
     MatDatepickerModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
     
    ],
    exports:[
@@ -86,7 +88,8 @@ import { UserService } from 'src/app/services/user.service';
     MatGridListModule,
     MatDatepickerModule,
     MatSelectModule,
-    FormsModule 
+    FormsModule,
+    MatDialogModule 
    ],
    providers: [PedidodearticuloService,
     UserService],

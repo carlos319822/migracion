@@ -20,14 +20,14 @@ export class LoginComponent  {
     password:''
   }
 
-  //form: FormGroup;
+  form: FormGroup;
   
   loading = false; 
   constructor(private fb:FormBuilder, private _snackBar: MatSnackBar, private router: Router, private service:UserService, private http: HttpClient) {
-    //this.form= fb.group({
-      //usuario:['',Validators.required],
-      //password:['',Validators.required]
-    //})
+    this.form= fb.group({
+    usuario:['',Validators.required],
+    password:['',Validators.required]
+    })
    }
 
   
@@ -43,7 +43,7 @@ export class LoginComponent  {
 
     },err=>{
       this.error();
-     // this.form.reset();
+     this.form.reset();
     })
   
   

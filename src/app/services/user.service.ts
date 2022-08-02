@@ -29,7 +29,7 @@ export class UserService {
     localStorage.removeItem('userName');
     localStorage.removeItem('token_value');
     this.router.navigate(['/login']);
-    window.location.reload();
+    //window.location.reload();
   }
 
   get getUsername(){

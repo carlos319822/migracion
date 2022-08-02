@@ -1,6 +1,8 @@
 export interface Pedidodearticulo{
-    motivodesolicitud: string;
-    fechapedido: Date;
-    estado:string;
-    observaciones:string; 
+    motivo_solicitud:string;
+    fecha_pedido:Date;
+    autorizado:boolean;
+    Obs:string;
+
+
 }
