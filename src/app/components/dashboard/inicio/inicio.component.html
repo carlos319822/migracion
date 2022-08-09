@@ -1,1 +1,56 @@
+<div>
 
+    <mat-toolbar>
+        <span>Almacen</span>
+    </mat-toolbar>
+
+    <div class="add"><button class="add" mat-raised-button color="primary" routerLink="/dashboard/crear-almacen"><mat-icon>add</mat-icon></button></div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="codigo">
+            <th mat-header-cell *matHeaderCellDef> Codigo Almacen </th>
+            <td mat-cell *matCellDef="let element"> {{element.cod_almacen}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre Almacen </th>
+            <td mat-cell *matCellDef="let element"> {{element.nom_almacen}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="direccion">
+            <th mat-header-cell *matHeaderCellDef> Direccion Almacen </th>
+            <td mat-cell *matCellDef="let element"> {{element.dir_almacen}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="telefono">
+            <th mat-header-cell *matHeaderCellDef> Telefono Almacen </th>
+            <td mat-cell *matCellDef="let element"> {{element.tlf_almacen}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="observaciones">
+            <th mat-header-cell *matHeaderCellDef> Observaciones </th>
+            <td mat-cell *matCellDef="let element"> {{element.obs}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element" style="text-align: right;">
+                <a class="pointer" style="color:#1878b0" matTooltip="ver almacen">
+                    <mat-icon>search</mat-icon>
+                </a>
+                <a class="pointer" (click)="actualizaralmacen(element)" style="color:#1f656f" matTooltip="editar almacen">
+                    <mat-icon>edit</mat-icon>
+                </a>
+
+            </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+
+</div>

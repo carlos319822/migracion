@@ -1,3 +1,110 @@
+<!--
+<body class="fondo">
+
+
+    <h1> <span class="urgente"> Pedido de Articulo
+            <mat-slide-toggle>Urgente</mat-slide-toggle></span>
+    </h1>
+
+
+    <div class="container">
+
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">piso destino</label>
+                <input type="text" class="form-control" id="piso_destino" required [(ngModel)]="model.piso_destino" name="piso_destino" #name="ngModel" />
+            </div>
+
+            <div class="form-group">
+                <label for="username">cargado almacen</label>
+                <input type="text" class="form-control" id="cod_almacen" [(ngModel)]="model.cod_almacen" name="cod_almacen" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">Codigo clave</label>
+                <input type="text" class="form-control" id="cod_clave" required [(ngModel)]="model.cod_clave" name="cod_clave" #name="ngModel" />
+            </div>
+            <div class="form-group">
+                <label for="name">proc destino</label>
+                <input type="text" class="form-control" id="proc_destino" required [(ngModel)]="model.proc_destino" name="proc_destino" #name="ngModel" />
+            </div>
+            <div class="form-group">
+                <label for="name">prog destino</label>
+                <input type="text" class="form-control" id="prog_destino" required [(ngModel)]="model.prog_destino" name="prog_destino" #name="ngModel" />
+            </div>
+            <div class="form-group">
+                <label for="name">observaciones</label>
+                <input type="text" class="form-control" id="obs" required [(ngModel)]="model.obs" name="obs" #name="ngModel" />
+            </div>
+            <div class="form-group">
+                <label for="name">pedido por</label>
+                <input type="text" class="form-control" id="pedido_por" required [(ngModel)]="model.pedido_por" name="pedido_por" #name="ngModel" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">codigo articulo</label>
+                <input type="text" class="form-control" id="cod_articulo" required [(ngModel)]="model.cod_articulo" name="cant_pedida" #name="ngModel" />
+            </div>
+            <div class="form-group">
+                <label for="name">cantidad</label>
+                <input type="text" class="form-control" id="cant_pedida" required [(ngModel)]="model.cant_pedida" name="cant_pedida" #name="ngModel" />
+            </div>
+
+            <button type="submit" class="btn btn-success">
+            Submit
+        </button>
+        </form>
+    </div>
+</body>
+-->
+
+
+<!---
+<mat-card>
+    <span>Crear Nuevo Pedido</span>
+
+    <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit">
+        <mat-form-field class="crear">
+            <input matInput placeholder="motivo solicitud" formControlName="motivo_solicitud">
+        </mat-form-field>
+    </form>
+    <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit">
+        <mat-form-field class="crear">
+            <input matInput placeholder="piso destino" formControlName="piso_destino">
+        </mat-form-field>
+    </form>
+    <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit">
+        <mat-form-field class="crear">
+            <input matInput placeholder="observciones" formControlName="Obs">
+        </mat-form-field>
+    </form>
+    <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit">
+        <mat-form-field class="crear">
+            <input matInput placeholder="cargado al pro " formControlName="cargado_pro">
+        </mat-form-field>
+    </form>
+    <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit">
+        <mat-form-field class="crear">
+            <input matInput placeholder="articulo" formControlName="articulo">
+        </mat-form-field>
+    </form>
+    <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit">
+        <mat-form-field class="crear">
+            <input matInput placeholder="cantidad" formControlName="cantidad">
+        </mat-form-field>
+    </form>
+    <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit">
+        <mat-form-field class="crear">
+            <input matInput placeholder="observaciones" formControlName="obser">
+        </mat-form-field>
+
+        <button mat_raised-button [disabled]="!pedidoForm.valid">Enviar  </button>
+
+
+    </form>
+</mat-card>
+
+
 <body class="fo">
     <div class="container">
 
@@ -90,22 +197,18 @@
                     <mat-grid-tile [colspan]="3" [rowspan]="4">
                         <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
 
-                            <!--- Note that these columns can be defined in any order.
-                                  The actual rendered columns are set as a property on the row definition" -->
-
-                            <!-- Position Column -->
+                            
                             <ng-container matColumnDef="articulo">
                                 <th mat-header-cell *matHeaderCellDef> Articulo </th>
                                 <td mat-cell *matCellDef="let element"> {{element.articulo}} </td>
                             </ng-container>
 
-                            <!-- Name Column -->
                             <ng-container matColumnDef="cantidad">
                                 <th mat-header-cell *matHeaderCellDef> Cantidad </th>
                                 <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
                             </ng-container>
 
-                            <!-- Weight Column -->
+                          
                             <ng-container matColumnDef="observaciones">
                                 <th mat-header-cell *matHeaderCellDef> Observaciones </th>
                                 <td mat-cell *matCellDef="let element"> {{element.observaciones}} </td>
@@ -139,4 +242,4 @@
 
 
     </div>
-</body>
+</body> --->

@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class PedidodearticuloService {
 
-  baseUrl: string ='https://localhost:7265/api/Pedido';
+  baseUrl: string ='https://localhost:7265/api/Pedido/';
 
   /*listPedidos: Pedidodearticulo[] = [
     {motivodesolicitud: "Se necesita papel Bound", fechapedido: '9/9/2013', estado: "No Autorizado", observaciones: '...'},
@@ -46,6 +46,11 @@ export class PedidodearticuloService {
 
   crearpedido(pedido: Pedidodearticulo){
     return this.http.post(this.baseUrl, pedido);
+  }
+
+
+  actualizarPedido(id_pedido:number,pedido:Pedidodearticulo){
+    return this.http.put(this.baseUrl+id_pedido, pedido);
   }
 
 }

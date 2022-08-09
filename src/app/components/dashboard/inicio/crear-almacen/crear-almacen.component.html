@@ -1,0 +1,39 @@
+<body class="fondo">
+
+
+    <div class="container">
+
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Codigo Almacen</label>
+                <input type="text" class="form-control" id="cod_almacen" required [(ngModel)]="model.cod_almacen" name="cod_almacen" #name="ngModel" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">Nombre Almacen</label>
+                <input type="text" class="form-control" id="nom_almacen" required [(ngModel)]="model.nom_almacen" name="nom_almacen" #name="ngModel" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">Direccion Almacen</label>
+                <input type="text" class="form-control" id="dir_almacen" required [(ngModel)]="model.dir_almacen" name="dir_almacen" #name="ngModel" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">Telefono Almacen</label>
+                <input type="text" class="form-control" id="tlf_almacen" required [(ngModel)]="model.tlf_almacen" name="tlf_almacen" #name="ngModel" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">Observaciones</label>
+                <input type="text" class="form-control" id="obs" required [(ngModel)]="model.obs" name="obs" #name="ngModel" />
+            </div>
+            <br>
+
+            <button type="submit" class="btn btn-success">
+            Submit
+        </button>
+        </form>
+    </div>
+
+</body>

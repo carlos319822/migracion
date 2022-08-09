@@ -5,6 +5,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PedidodearticuloService } from '../../../../services/pedidodearticulo.service';
 import { Router } from '@angular/router';
+import { Pedidodearticulo } from 'src/app/interfaces/pedidodearticulo';
+import { Detpedidoin } from '../../../../interfaces/detpedidoin';
+import { DetPedidoService } from 'src/app/services/detpedido.service';
+import { HttpClient } from '@angular/common/http';
 
 
 export interface Articulos {
@@ -20,6 +24,24 @@ export interface Articulos {
   styleUrls: ['./crear-pedido.component.css']
 })
 export class CrearPedidoComponent  {
+
+  /*model: Pedidodearticulo={
+    id_pedido: 0, cod_clave: 1, cod_almacen: 0, proc_destino: '', prog_destino: '', obs: '', pedido_por: '',
+    motivo_solicitud: '',
+    fecha_pedido: Date,
+    autorizado: false,
+    piso_destino: '',
+    cod_articulo: 1,
+    cant_pedida: 1
+  }*/
+
+  modeli: Detpedidoin={
+    cod_articulo:1,
+    cant_pedida:0,
+    obs:'',
+  }
+
+  name = new FormControl('')
 
   listaArticulos: Articulos[] = [
     {articulo:'Papel Bound', cantidad: 5, observaciones:'...'},
@@ -51,21 +73,33 @@ export class CrearPedidoComponent  {
 
 
   
-  constructor(private service: PedidodearticuloService, private router:Router ) { }
+  constructor(private service: PedidodearticuloService, private router:Router, private services:DetPedidoService, private http: HttpClient ) { }
 
 
   pedidoForm= new FormGroup({
-    motivo_solicitud: new FormControl('',Validators.required),
+    cod_clave: new FormControl('',Validators.required),
+    cod_almacen: new FormControl('',Validators.required),
     piso_destino: new FormControl('',Validators.required),
-    Obs: new FormControl('',Validators.required),
-    obser: new FormControl('',Validators.required),
-    cantidad: new FormControl('',Validators.required),
-    cargado_pro: new FormControl('',Validators.required),
-    articulo: new FormControl('',Validators.required),
+    proc_destino: new FormControl('',Validators.required),
+    prog_destino: new FormControl('',Validators.required),
+    motivo_solicitud: new FormControl('',Validators.required),
+    obs: new FormControl('',Validators.required),
+    pedido_por: new FormControl('',Validators.required),
+    cod_articulo: new FormControl('',Validators.required),
+    cant_pedida: new FormControl('',Validators.required),
   })
 
   onSubmit(){
-    console.log(this.pedidoForm.value);
+
+   //console.log(this.model)
+    //console.log(this.modeli)
+
+
+    /*this.service.crearpedido(this.model).subscribe((data:any)=> {
+      alert("Pedido Creado");
+      this.router.navigate(['/pedidoarticulo']);
+    })*/
+    //this.services.crearpedido(this.modeli).subscribe((data:any)=>{});
 
     this.service.crearpedido(this.pedidoForm.value).subscribe((data:any)=> {
       alert("Pedido Creado");
@@ -80,6 +114,8 @@ export class CrearPedidoComponent  {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+
+  
 
 
   

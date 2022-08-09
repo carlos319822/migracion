@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Pedidodearticulo } from 'src/app/interfaces/pedidodearticulo';
 import { PedidodearticuloService } from '../../../services/pedidodearticulo.service';
+import { ActualizarPedidoComponent } from './actualizar-pedido/actualizar-pedido.component';
 
 
 
@@ -23,10 +25,10 @@ export class PedidodearticuloComponent implements OnInit {
  
   dataSource! : MatTableDataSource<any>;
 
-  //@ViewChild(MatPaginator) paginator!: MatPaginator;
-  //@ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _snackBar: MatSnackBar,private service:PedidodearticuloService) { }
+  constructor(private _snackBar: MatSnackBar,private service:PedidodearticuloService, private dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.service.getPedidodearticulo().subscribe((data:any)=> {
@@ -46,6 +48,21 @@ export class PedidodearticuloComponent implements OnInit {
 
   actualizarpedido(pedido: Pedidodearticulo){
     console.log(pedido);
+
+    this.dialog.open(ActualizarPedidoComponent, {
+      data:{
+
+        almacen: pedido.cod_almacen,
+        autorizado: pedido.autorizado,
+        motivo_solicitud: pedido.motivo_solicitud,
+        fecha_pedido:pedido.fecha_pedido,
+        obs: pedido.obs,
+        pedido_por: pedido.pedido_por,
+        piso_destino: pedido.piso_destino,
+        id_pedido: pedido.id_pedido
+
+      }
+    })
 
   }
 

@@ -10,6 +10,9 @@ import { PedidodearticuloComponent } from './pedidodearticulo/pedidodearticulo.c
 import { DelegarautoridadComponent } from './delegarautoridad/delegarautoridad.component';
 import { CrearPedidoComponent } from './pedidodearticulo/crear-pedido/crear-pedido.component';
 import { AtencionpedidoComponent } from './pedidodearticulo/atencionpedido/atencionpedido.component';
+import { ActualizarPedidoComponent } from './pedidodearticulo/actualizar-pedido/actualizar-pedido.component';
+import { ActualizarAlmacenComponent } from './inicio/actualizar-almacen/actualizar-almacen.component';
+import { CrearAlmacenComponent } from './inicio/crear-almacen/crear-almacen.component';
 
 
 
@@ -22,6 +25,9 @@ import { AtencionpedidoComponent } from './pedidodearticulo/atencionpedido/atenc
     DelegarautoridadComponent,
     CrearPedidoComponent,
     AtencionpedidoComponent,
+    ActualizarPedidoComponent,
+    ActualizarAlmacenComponent,
+    CrearAlmacenComponent,
     
   ],
   imports: [
@@ -31,7 +37,7 @@ import { AtencionpedidoComponent } from './pedidodearticulo/atencionpedido/atenc
     
   ],
 
-  entryComponents:[CrearPedidoComponent]
+  entryComponents:[ActualizarPedidoComponent,CrearPedidoComponent,ActualizarAlmacenComponent]
   
 })
 export class DashboardModule { }

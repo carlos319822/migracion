@@ -24,3 +24,31 @@ table {
 .button {
     position: relative;
 }
+
+.fondo {
+    background-color: rgb(164, 142, 180);
+}
+
+.urgente {
+    background: white;
+    color: rgb(137, 78, 179);
+    width: 2%;
+    height: 2%;
+}
+
+.crear-pedido-form {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 5%;
+}
+
+.crear-pedido-field {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.crear-form-btn {
+    position: relative;
+}

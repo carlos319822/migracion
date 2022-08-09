@@ -30,6 +30,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { PedidodearticuloService } from 'src/app/services/pedidodearticulo.service';
 import { UserService } from 'src/app/services/user.service';
 import { MatDialogModule} from '@angular/material/dialog';
+import { AlmacenService } from 'src/app/services/almacen.service';
 
 
 
@@ -61,7 +62,8 @@ import { MatDialogModule} from '@angular/material/dialog';
     MatDatepickerModule,
     MatSelectModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
     
    ],
    exports:[
@@ -89,9 +91,10 @@ import { MatDialogModule} from '@angular/material/dialog';
     MatDatepickerModule,
     MatSelectModule,
     FormsModule,
-    MatDialogModule 
+    MatDialogModule,
+    FormsModule 
    ],
    providers: [PedidodearticuloService,
-    UserService],
+    UserService,AlmacenService],
 })
 export class SharedModule { }

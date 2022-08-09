@@ -1,0 +1,20 @@
+.crear-almacen-form {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 5%;
+}
+
+.crear-almacen-field {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.crear-form-btn {
+    position: relative;
+}
+
+.fondo {
+    background-color: rgb(194, 194, 194);
+}
