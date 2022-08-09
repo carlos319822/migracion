@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 //Modulos
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
 //angular material
 
@@ -53,7 +52,6 @@ import {MatDividerModule} from '@angular/material/divider';
     MatMenuModule,
     MatListModule,
     MatSlideToggleModule,
-    HttpClientModule,
     MatTableModule,
     MatTooltipModule,
     MatPaginatorModule,
@@ -83,7 +81,6 @@ import {MatDividerModule} from '@angular/material/divider';
     MatMenuModule,
     MatListModule,
     MatSlideToggleModule,
-    HttpClientModule,
     MatTableModule,
     MatTooltipModule,
     MatPaginatorModule,

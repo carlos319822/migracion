@@ -15,7 +15,8 @@ import { UserService } from './services/user.service';
 import { LoginComponent } from './components/login/login.component';
 import { SharedModule } from './components/shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { InterceptorService } from './interceptors/interceptor.service';
 
 
 @NgModule({
@@ -32,7 +33,13 @@ import { HttpClientModule} from '@angular/common/http';
 
     
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi : true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
