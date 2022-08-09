@@ -13,6 +13,7 @@ import { AtencionpedidoComponent } from './pedidodearticulo/atencionpedido/atenc
 import { ActualizarPedidoComponent } from './pedidodearticulo/actualizar-pedido/actualizar-pedido.component';
 import { ActualizarAlmacenComponent } from './inicio/actualizar-almacen/actualizar-almacen.component';
 import { CrearAlmacenComponent } from './inicio/crear-almacen/crear-almacen.component';
+import { VerAlmacenComponent } from './inicio/ver-almacen/ver-almacen.component';
 
 
 
@@ -28,6 +29,7 @@ import { CrearAlmacenComponent } from './inicio/crear-almacen/crear-almacen.comp
     ActualizarPedidoComponent,
     ActualizarAlmacenComponent,
     CrearAlmacenComponent,
+    VerAlmacenComponent,
     
   ],
   imports: [
@@ -37,7 +39,7 @@ import { CrearAlmacenComponent } from './inicio/crear-almacen/crear-almacen.comp
     
   ],
 
-  entryComponents:[ActualizarPedidoComponent,CrearPedidoComponent,ActualizarAlmacenComponent]
+  entryComponents:[ActualizarPedidoComponent,CrearPedidoComponent,ActualizarAlmacenComponent,VerAlmacenComponent]
   
 })
 export class DashboardModule { }

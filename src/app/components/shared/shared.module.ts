@@ -31,6 +31,7 @@ import { PedidodearticuloService } from 'src/app/services/pedidodearticulo.servi
 import { UserService } from 'src/app/services/user.service';
 import { MatDialogModule} from '@angular/material/dialog';
 import { AlmacenService } from 'src/app/services/almacen.service';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 
@@ -63,7 +64,8 @@ import { AlmacenService } from 'src/app/services/almacen.service';
     MatSelectModule,
     FormsModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatDividerModule
     
    ],
    exports:[
@@ -92,7 +94,8 @@ import { AlmacenService } from 'src/app/services/almacen.service';
     MatSelectModule,
     FormsModule,
     MatDialogModule,
-    FormsModule 
+    FormsModule,
+    MatDividerModule 
    ],
    providers: [PedidodearticuloService,
     UserService,AlmacenService],

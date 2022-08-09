@@ -1,7 +1,7 @@
 export interface Almacenin{
 
-    id:number;
     
+
 
     cod_almacen:string;
     nom_almacen:string;

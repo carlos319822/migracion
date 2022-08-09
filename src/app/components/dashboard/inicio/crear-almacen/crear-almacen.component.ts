@@ -16,8 +16,7 @@ export class CrearAlmacenComponent  {
     nom_almacen: '',
     dir_almacen: '',
     tlf_almacen: '',
-    obs: '',
-    id: 0
+    obs: ''
   };
 
   constructor(private almacenService: AlmacenService, private router: Router) { }

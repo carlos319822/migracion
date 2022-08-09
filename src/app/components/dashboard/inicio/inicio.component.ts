@@ -6,6 +6,7 @@ import { AlmacenService } from 'src/app/services/almacen.service';
 import { ActualizarAlmacenComponent } from './actualizar-almacen/actualizar-almacen.component';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { VerAlmacenComponent } from './ver-almacen/ver-almacen.component';
 
 
 
@@ -41,6 +42,24 @@ export class InicioComponent implements OnInit {
     console.log(almacen);
 
     this.dialog.open(ActualizarAlmacenComponent, {
+      data:{
+
+        
+        cod_almacen:almacen.cod_almacen,
+        nom_almacen:almacen.nom_almacen,
+        dir_almacen:almacen.dir_almacen,
+        tlf_almacen:almacen.tlf_almacen,
+        obs:almacen.obs
+
+      }
+    })
+
+  }
+
+  veralmacen(almacen: Almacenin){
+    console.log(almacen);
+
+    this.dialog.open(VerAlmacenComponent, {
       data:{
 
         
