@@ -25,20 +25,35 @@ export interface Articulos {
 })
 export class CrearPedidoComponent  {
 
-  /*model: Pedidodearticulo={
-    id_pedido: 0, cod_clave: 1, cod_almacen: 0, proc_destino: '', prog_destino: '', obs: '', pedido_por: '',
-    motivo_solicitud: '',
-    fecha_pedido: Date,
-    autorizado: false,
+  model: Pedidodearticulo={
+    id_pedido: 0,
+    cod_clave: 0,
+    cod_almacen: '',
+    fecha_pedido: '',
+    //fecha_entrega: undefined,
+    //fecha_despacho: undefined,
     piso_destino: '',
-    cod_articulo: 1,
-    cant_pedida: 1
-  }*/
+    proc_destino: '',
+    prog_destino: '',
+    proy_destino: '',
+    motivo_solicitud: '',
+    autorizado: false,
+    urgente: false,
+    recepcionado: false,
+    enviado: false,
+    obs: '',
+    atendido: false,
+    pedido_por: '',
+  }
+
 
   modeli: Detpedidoin={
-    cod_articulo:1,
-    cant_pedida:0,
-    obs:'',
+    cod_articulo: 1,
+    cant_pedida: 0,
+    obs: '',
+    id: 0,
+    pedido_para_compra: false,
+    autoriza_compra: false
   }
 
   name = new FormControl('')
@@ -91,8 +106,8 @@ export class CrearPedidoComponent  {
 
   onSubmit(){
 
-   //console.log(this.model)
-    //console.log(this.modeli)
+   console.log(this.model)
+    console.log(this.modeli)
 
 
     /*this.service.crearpedido(this.model).subscribe((data:any)=> {

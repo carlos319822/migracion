@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Almacenin } from '../../../../interfaces/almacenin';
-import { AlmacenService } from '../../../../services/almacen.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Almacenin } from 'src/app/interfaces/almacenin';
+import { AlmacenService } from 'src/app/services/almacen.service';
 
 @Component({
   selector: 'app-crear-almacen',
@@ -36,8 +36,7 @@ export class CrearAlmacenComponent  {
 
     this.almacenService.crearalmacen(this.model).subscribe((data:any)=> {
       alert("Almacen Creado");
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/dashboard/almacen']);
     })
   }
-
 }

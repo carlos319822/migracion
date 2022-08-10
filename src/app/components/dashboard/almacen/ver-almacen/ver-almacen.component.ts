@@ -1,8 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { AlmacenService } from 'src/app/services/almacen.service';
 
 @Component({
@@ -44,19 +43,7 @@ export class VerAlmacenComponent implements OnInit {
  
 
   ngOnInit(): void {
-    /*this.id=this.router.snapshot.paramMap.get('id');
-    this.service.getAlmacen(this.id).subscribe((data:any)=>{
-    console.log(data);
-    
-    this.almacen.cod_almacen=data.result.cod_almacen;
-    this.almacen.nom_almacen=data.result.nom_almacen;
-    this.almacen.dir_almacen=data.result.dir_almacen;
-    this.almacen.tlf_almacen=data.result.tlf_almacen;
-    this.almacen.obs=data.result.obs;
-    }
-    )*/
+   
   }
-
-  
 
 }

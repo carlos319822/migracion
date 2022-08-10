@@ -11,9 +11,10 @@ import { DelegarautoridadComponent } from './delegarautoridad/delegarautoridad.c
 import { CrearPedidoComponent } from './pedidodearticulo/crear-pedido/crear-pedido.component';
 import { AtencionpedidoComponent } from './pedidodearticulo/atencionpedido/atencionpedido.component';
 import { ActualizarPedidoComponent } from './pedidodearticulo/actualizar-pedido/actualizar-pedido.component';
-import { ActualizarAlmacenComponent } from './inicio/actualizar-almacen/actualizar-almacen.component';
-import { CrearAlmacenComponent } from './inicio/crear-almacen/crear-almacen.component';
-import { VerAlmacenComponent } from './inicio/ver-almacen/ver-almacen.component';
+import { AlmacenComponent } from './almacen/almacen.component';
+import { ActualizarAlmacenComponent } from './almacen/actualizar-almacen/actualizar-almacen.component';
+import { CrearAlmacenComponent } from './almacen/crear-almacen/crear-almacen.component';
+import { VerAlmacenComponent } from './almacen/ver-almacen/ver-almacen.component';
 
 
 
@@ -30,6 +31,7 @@ import { VerAlmacenComponent } from './inicio/ver-almacen/ver-almacen.component'
     ActualizarAlmacenComponent,
     CrearAlmacenComponent,
     VerAlmacenComponent,
+    AlmacenComponent,
     
   ],
   imports: [
