@@ -33,7 +33,7 @@ export class InterceptorService implements HttpInterceptor{
   manejarError(error:HttpErrorResponse){
     console.log('sucedio un error');
     console.warn(error);
-    return throwError(()=>new Error('Error personalizado'));
+    return throwError(error);
   }
 
 }

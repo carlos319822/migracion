@@ -32,7 +32,7 @@ export class PedidodearticuloComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getPedidodearticulo().subscribe((data:any)=> {
-      this.dataSource= new MatTableDataSource<Pedidodearticulo>(data.result as Pedidodearticulo[]);
+      this.dataSource= new MatTableDataSource<Pedidodearticulo>(data.result.result as Pedidodearticulo[]);
       console.log(data);
     });
   }
@@ -59,7 +59,6 @@ export class PedidodearticuloComponent implements OnInit {
         obs: pedido.obs,
         pedido_por: pedido.pedido_por,
         piso_destino: pedido.piso_destino,
-        id_pedido: pedido.id_pedido
 
       }
     })
