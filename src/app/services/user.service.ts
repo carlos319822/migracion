@@ -26,14 +26,20 @@ export class UserService {
   }
 
   logout(){
-    localStorage.removeItem('userName');
+    localStorage.removeItem('User');
     localStorage.removeItem('token_value');
     this.router.navigate(['/login']);
     //window.location.reload();
   }
 
   get getUsername(){
-    return localStorage.getItem('userName');
+    var retrievedObject = JSON.parse(localStorage.getItem('user')??' ');
+    
+    if (retrievedObject != ' ') {
+      var d : User = retrievedObject;
+      return d.userName;
+    }
+    return 'No Logeado'
   }
 
   get isAutenticado(){

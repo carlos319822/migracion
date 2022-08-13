@@ -8,6 +8,7 @@ import { Subscription, timeout } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Response } from '../../interfaces/response';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +16,7 @@ import { Response } from '../../interfaces/response';
 })
 export class LoginComponent  {
 
-  loginData={
+  loginData = {
     userName:'',
     password:''
   }
@@ -29,14 +30,21 @@ export class LoginComponent  {
     password:['',Validators.required]
     })
    }
-
   
 
-  login(){
-    
+  login(){   
+
     this.service.login(this.loginData).subscribe((data:any) => {
-      localStorage.setItem('userName',data.result.userName);
+      localStorage.setItem('user', JSON.stringify(data.result));
       localStorage.setItem('token_value',data.result.token);
+      
+      // let retrievedObject = localStorage.getItem('user');
+      
+      // d.copyInto(retrievedObject);
+
+
+      // console.log(d); 
+
       this.Loading();
       this.router.navigate(['dashboard'])   
       
