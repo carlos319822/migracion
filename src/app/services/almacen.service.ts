@@ -25,8 +25,8 @@ export class AlmacenService {
     
   }
 
-  crearalmacen(almacen: Almacenin){
-    return this.http.post(this.baseUrl, almacen);
+  crearalmacen(almacen: Almacenin,cod_almacen:string){
+    return this.http.post(this.baseUrl, cod_almacen);
   }
 
 
