@@ -62,7 +62,10 @@ export class AlmacenComponent implements OnInit {
 
   veralmacen(almacen: Almacenin){
     console.log(almacen);
-    
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.disableClose=true;
+    dialogConfig.autoFocus=true;
+    dialogConfig.width="60%";
 
     this.dialog.open(VerAlmacenComponent, {
       data:{
@@ -78,14 +81,30 @@ export class AlmacenComponent implements OnInit {
     })
 
   }
-  crearalmacen(){
+  /*crearalmacen(almacen: Almacenin){
+
+    console.log(almacen);
+    
+
+    this.dialog.open(CrearAlmacenComponent, {
+      data:{
+
+        
+        cod_almacen:almacen.cod_almacen,
+        nom_almacen:almacen.nom_almacen,
+        dir_almacen:almacen.dir_almacen,
+        tlf_almacen:almacen.tlf_almacen,
+        obs:almacen.obs
+
+      }
+    })
     const dialogConfig=new MatDialogConfig();
     dialogConfig.disableClose=true;
     dialogConfig.autoFocus=true;
     dialogConfig.width="60%";
     this.dialog.open(CrearAlmacenComponent,dialogConfig);
 
-  }
+  }*/
 
   
 

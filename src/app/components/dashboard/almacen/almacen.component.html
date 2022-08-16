@@ -4,9 +4,8 @@
         <span>Almacenes</span>
     </mat-toolbar>
 
-    <button mat-raised-button><mat-icon>add</mat-icon></button>
 
-    <!-- <div class="add"><button class="add" mat-raised-button color="primary" (click)="crearalmacen"><mat-icon>add</mat-icon></button></div>-->
+    <div class="add"><button class="add" mat-raised-button color="primary" routerLink="/dashboard/crear-almacen"><mat-icon>add</mat-icon></button></div>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -44,6 +43,7 @@
                 <a class="pointer" (click)="actualizaralmacen(element)" style="color:#1f656f" matTooltip="editar almacen">
                     <mat-icon>edit</mat-icon>
                 </a>
+
 
 
             </td>

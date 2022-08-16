@@ -10,15 +10,42 @@ import { AlmacenService } from 'src/app/services/almacen.service';
   templateUrl: './crear-almacen.component.html',
   styleUrls: ['./crear-almacen.component.css']
 })
-export class CrearAlmacenComponent  {
+export class CrearAlmacenComponent   {
 
-  constructor(private service:AlmacenService,public dialogRef:MatDialogRef<CrearAlmacenComponent>){
+  /*constructor(private service:AlmacenService,
+    public dialogRef:MatDialogRef<CrearAlmacenComponent>){
 
   }
 
+  ngOnInit(): void {
+    this.service.getAlmacen();
+  }
+
+  onClear(){
+    this.service.form.reset();
+    this.service.initializeFormGroup();
+  
+  }
+  onSubmit(){
+    if(this.service.form.valid){
+      this.service.crearalmacen(this.service.form.value);
+      this.service.form.reset();
+      this.service.initializeFormGroup();
+      this.onClose();
+    }
+  }
+
+  onClose(){
+    this.service.form.reset();
+    this.service.initializeFormGroup();
+    this.dialogRef.close();
+  }
+
+
+
  
 
-  /*form:FormGroup;
+  form:FormGroup;
   cod_almacen:string;
 
   constructor(private fb:FormBuilder,
@@ -56,13 +83,13 @@ export class CrearAlmacenComponent  {
               
               );
               this.dialogRef.close();    
-             }
+             }*/
 
 
              
 
 
- /* model: Almacenin={
+  model: Almacenin={
     cod_almacen: '',
     nom_almacen: '',
     dir_almacen: '',
@@ -86,9 +113,9 @@ export class CrearAlmacenComponent  {
     console.log(this.model);
     //this.almacenService.crearalmacen(this.model).subscribe((response: Almacenin) => console.log(response));
 
-    this.almacenService.crearalmacen(this.model).subscribe((data:any)=> {
+    this.almacenService.crearalmacen(this.model).subscribe((data: any) => {
       alert("Almacen Creado");
       this.router.navigate(['/dashboard/almacen']);
     })
-  }*/
+  }
 }
