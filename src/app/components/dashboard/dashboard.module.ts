@@ -15,7 +15,7 @@ import { AlmacenComponent } from './almacen/almacen.component';
 import { ActualizarAlmacenComponent } from './almacen/actualizar-almacen/actualizar-almacen.component';
 import { CrearAlmacenComponent } from './almacen/crear-almacen/crear-almacen.component';
 import { VerAlmacenComponent } from './almacen/ver-almacen/ver-almacen.component';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -38,7 +38,7 @@ import { VerAlmacenComponent } from './almacen/ver-almacen/ver-almacen.component
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
-    
+    MatExpansionModule
   ],
 
   entryComponents:[ActualizarPedidoComponent,CrearPedidoComponent,ActualizarAlmacenComponent,VerAlmacenComponent]

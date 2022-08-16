@@ -1,14 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Pedidodearticulo } from 'src/app/interfaces/pedidodearticulo';
+import { PedidoFiltros } from 'src/app/interfaces/pedidofiltros';
 import { PedidodearticuloService } from '../../../services/pedidodearticulo.service';
 import { ActualizarPedidoComponent } from './actualizar-pedido/actualizar-pedido.component';
-
-
 
 
 
@@ -18,9 +17,22 @@ import { ActualizarPedidoComponent } from './actualizar-pedido/actualizar-pedido
   styleUrls: ['./pedidodearticulo.component.css']
 })
 export class PedidodearticuloComponent implements OnInit {
-
   
+  panelOpenState = false;
+  estados: string[] = [
+    'Todo',
+    'Enviado',
+    'No Enviado'
+    
+  ];
+  
+  selectedEstado = this.estados[0];
+  fechaIncio :Date = new Date;
+  fechaFin :Date = new Date;
+  filtros : PedidoFiltros = {
 
+  }
+  
   displayedColumns: string[] = ['motivo de solicitud', 'fecha pedido', 'estado', 'observaciones', 'acciones'];
  
   dataSource! : MatTableDataSource<any>;
@@ -28,22 +40,47 @@ export class PedidodearticuloComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _snackBar: MatSnackBar,private service:PedidodearticuloService, private dialog:MatDialog) { }
+  constructor(private _snackBar: MatSnackBar,private service:PedidodearticuloService, private dialog:MatDialog) { 
+    this.filtros.estado = undefined;
+    this.filtros.fechaIni = undefined;
+    this.filtros.fechaFin = undefined;
+  }
 
   ngOnInit(): void {
-    this.service.getPedidodearticulo().subscribe((data:any)=> {
-      this.dataSource= new MatTableDataSource<Pedidodearticulo>(data.result.result as Pedidodearticulo[]);
-      console.log(data);
-    });
+    this.cargarPedidos();
+  }
+  
+  buscarFiltros(){
+    if(this.selectedEstado == this.estados[0])
+      this.filtros.estado = undefined;
+    if(this.selectedEstado == this.estados[1])
+      this.filtros.estado = true;
+    if(this.selectedEstado == this.estados[2])
+      this.filtros.estado = false;
+    
+    if(this.fechaFin!=undefined && this.fechaIncio != undefined){
+      if(this.fechaFin.getTime() -this.fechaIncio.getTime() != 0){
+        this.filtros.fechaIni = this.fechaIncio.toISOString();
+        this.filtros.fechaFin = this.fechaFin.toISOString();
+      }else
+      {
+        this.filtros.fechaIni = undefined;
+        this.filtros.fechaFin = undefined;
+      }
+    }else{
+      this.filtros.fechaIni = undefined;
+      this.filtros.fechaFin = undefined;
+    }    
+    
+    this.cargarPedidos();
+
   }
 
   cargarPedidos(){
-    /*this.service.getPedidodearticulo().subscribe((data:any)=>{
-      this.dataSource= new MatTableDataSource<Pedidodearticulo>(data.result as Pedidodearticulo[]);
-      console.log(data);
-    });
-    this.listPedidos=this._pedidodearticuloService.getPedidodearticulo();*/
-    
+    this.service.getPedidodearticulo(this.filtros,817).subscribe((data:any)=> {
+      this.dataSource= new MatTableDataSource<Pedidodearticulo>(data.result.result as Pedidodearticulo[]);
+      
+      });
   }
 
   actualizarpedido(pedido: Pedidodearticulo){
