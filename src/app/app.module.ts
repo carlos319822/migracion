@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 //services
 
@@ -17,7 +19,11 @@ import { SharedModule } from './components/shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { InterceptorService } from './interceptors/interceptor.service';
-
+import { MatListModule } from '@angular/material/list';
+import {MatSelectModule} from '@angular/material/select';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDatepickerModule} from '@angular/material/datepicker'; 
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -29,9 +35,14 @@ import { InterceptorService } from './interceptors/interceptor.service';
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
-    HttpClientModule
-
-    
+    HttpClientModule,
+    MatButtonModule,
+    MatCardModule,
+    MatListModule,
+    MatSelectModule,
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatNativeDateModule 
   ],
   providers: [
     {
@@ -40,6 +51,6 @@ import { InterceptorService } from './interceptors/interceptor.service';
       multi : true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent]  
 })
 export class AppModule { }

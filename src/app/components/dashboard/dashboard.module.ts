@@ -14,7 +14,11 @@ import { ActualizarPedidoComponent } from './pedidodearticulo/actualizar-pedido/
 import { AlmacenComponent } from './almacen/almacen.component';
 import { ActualizarAlmacenComponent } from './almacen/actualizar-almacen/actualizar-almacen.component';
 import { VerAlmacenComponent } from './almacen/ver-almacen/ver-almacen.component';
+
+import {MatExpansionModule} from '@angular/material/expansion';
+
 import { CrearAlmacenComponent } from './almacen/crear-almacen/crear-almacen.component';
+
 
 
 
@@ -38,7 +42,7 @@ import { CrearAlmacenComponent } from './almacen/crear-almacen/crear-almacen.com
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
-    
+    MatExpansionModule
   ],
 
   entryComponents:[ActualizarPedidoComponent,CrearPedidoComponent,ActualizarAlmacenComponent,VerAlmacenComponent,CrearAlmacenComponent]

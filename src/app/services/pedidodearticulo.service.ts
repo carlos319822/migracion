@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Pedidodearticulo } from '../interfaces/pedidodearticulo';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { PedidoFiltros } from '../interfaces/pedidofiltros';
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +25,15 @@ export class PedidodearticuloService {
 
   constructor(private http: HttpClient) { }
 
-  getPedidodearticulo(){
+  getPedidodearticulo(filtros: PedidoFiltros, codClave?:number){
+    
+    let auxURL: string = "PedidosByUser";
+    
+    if(codClave!=undefined){
+      auxURL = auxURL + '?codClave='+codClave
+    }
 
-
-    return this.http.get(this.baseUrl);
+    return this.http.post(this.baseUrl+auxURL,filtros);
     /*return this.listPedidos.slice();
 
     let auth_token = localStorage.getItem('token_value');
