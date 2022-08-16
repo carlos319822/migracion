@@ -13,9 +13,13 @@ import { AtencionpedidoComponent } from './pedidodearticulo/atencionpedido/atenc
 import { ActualizarPedidoComponent } from './pedidodearticulo/actualizar-pedido/actualizar-pedido.component';
 import { AlmacenComponent } from './almacen/almacen.component';
 import { ActualizarAlmacenComponent } from './almacen/actualizar-almacen/actualizar-almacen.component';
-import { CrearAlmacenComponent } from './almacen/crear-almacen/crear-almacen.component';
 import { VerAlmacenComponent } from './almacen/ver-almacen/ver-almacen.component';
+
 import {MatExpansionModule} from '@angular/material/expansion';
+
+import { CrearAlmacenComponent } from './almacen/crear-almacen/crear-almacen.component';
+
+
 
 
 @NgModule({
@@ -41,7 +45,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatExpansionModule
   ],
 
-  entryComponents:[ActualizarPedidoComponent,CrearPedidoComponent,ActualizarAlmacenComponent,VerAlmacenComponent]
+  entryComponents:[ActualizarPedidoComponent,CrearPedidoComponent,ActualizarAlmacenComponent,VerAlmacenComponent,CrearAlmacenComponent]
   
 })
 export class DashboardModule { }

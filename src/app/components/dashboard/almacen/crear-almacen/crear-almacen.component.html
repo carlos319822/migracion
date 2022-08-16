@@ -1,7 +1,46 @@
+<!--<h2 mat-dialog-title>Crear Almacen</h2>
+
+<mat-dialog-content [formGroup]="form">
+
+
+
+
+    <mat-form-field class="crear-pedido-field">
+        <input matInput placeholder="codigo almacen" formControlName="cod_almacen">
+    </mat-form-field>
+    <br/>
+    <mat-form-field class="crear-pedido-field">
+        <input matInput placeholder="nombre almacen" formControlName="nom_almacen">
+    </mat-form-field>
+    <br/>
+    <mat-form-field class="crear-pedido-field">
+        <input matInput placeholder="direccion" formControlName="dir_almacen">
+    </mat-form-field>
+    <br/>
+    <mat-form-field class="crear-pedido-field">
+        <input matInput placeholder="telefono" formControlName="tlf_almacen">
+    </mat-form-field>
+    <br/>
+    <mat-form-field class="crear-pedido-field">
+        <input matInput placeholder="observaciones" formControlName="obs">
+    </mat-form-field>
+    <br/>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)="cerrar()">Cerrar</button>
+    <button class="mat-raised-button mat-primary" type="submit">Guardar</button>
+
+</mat-dialog-actions>
+
+
+
 <body class="fondo">
 
 
-    <div class="container">
+    <div class="container" mat-dialog-content>
 
         <form (ngSubmit)="onSubmit()">
             <div class="form-group">
@@ -29,11 +68,15 @@
                 <input type="text" class="form-control" id="obs" required [(ngModel)]="model.obs" name="obs" #name="ngModel" />
             </div>
             <br>
+            <div mat-dialog-actions>
 
-            <button type="submit" class="btn btn-success">
-            Submit
-        </button>
+                <button type="submit" class="btn btn-success">
+                    Submit
+                    </button>
+
+            </div>
+
         </form>
     </div>
 
-</body>
+</body>-->

@@ -92,8 +92,9 @@ import {MatDividerModule} from '@angular/material/divider';
     FormsModule,
     MatDialogModule,
     FormsModule,
-    MatDividerModule 
+    MatDividerModule
    ],
+   
    providers: [PedidodearticuloService,
     UserService,AlmacenService],
 })
