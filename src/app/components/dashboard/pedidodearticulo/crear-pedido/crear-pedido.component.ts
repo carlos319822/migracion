@@ -66,11 +66,8 @@ export class CrearPedidoComponent {
     { articulo: 'lapiceros', cantidad: 5, observaciones: '...' },
     { articulo: 'Abono', cantidad: 5, observaciones: '...' },
     { articulo: 'Probetas', cantidad: 5, observaciones: '...' },
-    { articulo: 'caminos', cantidad: 5, observaciones: '...' },
-    { articulo: 'Papel Bound', cantidad: 5, observaciones: '...' },
-    { articulo: 'Papel Bound', cantidad: 5, observaciones: '...' },
-    { articulo: 'Papel Bound', cantidad: 5, observaciones: '...' },
-    { articulo: 'Papel Bound', cantidad: 5, observaciones: '...' },
+    
+    
 
   ];
 
