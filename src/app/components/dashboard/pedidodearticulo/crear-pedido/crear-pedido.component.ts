@@ -64,8 +64,7 @@ export class CrearPedidoComponent {
     { articulo: 'Papel Bound', cantidad: 5, observaciones: '...' },
     { articulo: 'tijeras', cantidad: 5, observaciones: '...' },
     { articulo: 'lapiceros', cantidad: 5, observaciones: '...' },
-    { articulo: 'Abono', cantidad: 5, observaciones: '...' },
-    { articulo: 'Probetas', cantidad: 5, observaciones: '...' },
+    { articulo: 'Abono', cantidad: 5, observaciones: '...' }
     
     
 
