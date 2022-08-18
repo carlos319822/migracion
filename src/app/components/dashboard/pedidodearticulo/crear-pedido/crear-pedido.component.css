@@ -13,6 +13,23 @@
     color: rgb(137, 78, 179);
 }
 
+.buton {
+    width: 100%;
+    border-radius: 10%;
+    float: left;
+    text-align: center;
+}
+
+.env {
+    background-color: rgb(67, 216, 44);
+    color: white;
+}
+
+.guar {
+    background-color: rgb(94, 94, 94);
+    color: white;
+}
+
 .container {
     width: 100%;
     border: 1px solid #ccc;
@@ -47,10 +64,17 @@
     color: white;
 }
 
+.but {
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    left: 30%;
+}
+
 .des {
     margin-top: 20Px;
     width: 35%;
-    height: 70%;
+    height: 60%;
 }
 
 .desp {

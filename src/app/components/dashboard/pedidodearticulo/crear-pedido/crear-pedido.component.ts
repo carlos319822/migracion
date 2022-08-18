@@ -79,7 +79,7 @@ export class CrearPedidoComponent {
   articulo: any[] = ['papel bound', 'abono', 'lapiceros']
 
 
-  displayedColumns: string[] = ['articulo', 'cantidad', 'observaciones'];
+  displayedColumns: string[] = ['articulo', 'cantidad', 'observaciones','acciones'];
   dataSource = new MatTableDataSource(this.listaArticulos)
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -120,6 +120,14 @@ export class CrearPedidoComponent {
       this.router.navigate(['/pedidoarticulo']);
     })
 
+  }
+
+  actualizararticulo(){
+
+  }
+
+  eliminararticulo(){
+    
   }
 
 
