@@ -40,7 +40,6 @@ h1.example-app-name {
 }
 
 mat-sidenav {
-    width: 15%;
     background-color: #6750A4;
     color: rgb(250, 250, 250);
 }
@@ -76,7 +75,7 @@ mat-sidenav {
     width: 269px;
     height: 41.26px;
     left: 0px;
-    top: 400px;
+    margin-top: 400px;
     background-color: #381E72;
     color: rgb(250, 250, 250);
 }

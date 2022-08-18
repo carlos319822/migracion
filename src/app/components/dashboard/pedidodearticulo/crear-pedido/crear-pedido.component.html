@@ -1,130 +1,136 @@
+<meta name="viewport" content="width=device=width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, mininum-scale-1.0">
+
 <body class="fondo">
 
     <br>
+    <div class="inicial">
 
-    <div>
+        <div>
 
-        <div class="container">
-            <h1> <span class="urgente"> Pedido de Articulo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="container p">
+                <h1> <span class="urgente"> Pedido de Articulo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <mat-slide-toggle class="ur">Urgente</mat-slide-toggle></span>
-            </h1>
+                </h1>
 
+            </div>
+            <div class="container n">
+                <h1>Nuevo Articulo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button mat-raised-button class="bu"><mat-icon >add</mat-icon></button>
+                </h1>
+
+
+            </div>
         </div>
-        <div class="container n">
-            <h1>Nuevo Articulo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button mat-raised-button class="bu"><mat-icon >add</mat-icon></button>
-            </h1>
-
-
-        </div>
-    </div>
 
 
 
 
-    <div>
-        <br>
-        <br>
-        <div class="container des">
+        <div>
+            <br>
+            <br>
+            <div class="container des">
 
-            <form>
-                <br>
-                <mat-form-field appearance="fill" class="desp">
-                    <mat-label>Piso Destino</mat-label>
-                    <mat-select formControlName="piso_destino">
-                        <mat-option *ngFor="let item of piso" [value]="item">
+                <form>
+                    <br>
+                    <mat-form-field appearance="fill" class="desp">
+                        <mat-label>Piso Destino</mat-label>
+                        <mat-select formControlName="piso_destino">
+                            <mat-option *ngFor="let item of piso" [value]="item">
+                                {{item}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+
+                    <br>
+                    <mat-form-field appearance="fill" class="desp">
+                        <mat-label>Cargado al Pro</mat-label>
+                        <mat-select formControlName="cargado_pro">
+                            <mat-option *ngFor="let item of cargado" [value]="item">
+                                {{item}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <br>
+
+                    <mat-form-field class="example-full-width" appearance="fill" class="desp">
+                        <mat-label>Motivo:</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..." class="fij"></textarea>
+                    </mat-form-field>
+                    <br>
+                    <br>
+                    <mat-form-field class="example-full-width" appearance="fill" class="desp">
+                        <mat-label>Observacion:</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..." class="fij"></textarea>
+                    </mat-form-field>
+
+                </form>
+
+            </div>
+
+            <div class="container ar">
+                <mat-form-field appearance="fill" class="art">
+                    <mat-label>Articulo</mat-label>
+                    <mat-select formControlName="articulo">
+                        <mat-option *ngFor="let item of articulo" [value]="item">
                             {{item}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Cantidad:</mat-label>
+                    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                </mat-form-field>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br>
 
-                <br>
-                <mat-form-field appearance="fill" class="desp">
-                    <mat-label>Cargado al Pro</mat-label>
-                    <mat-select formControlName="cargado_pro">
-                        <mat-option *ngFor="let item of cargado" [value]="item">
-                            {{item}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <br>
-                <br>
-
-                <mat-form-field class="example-full-width" appearance="fill" class="desp">
-                    <mat-label>Motivo:</mat-label>
-                    <textarea matInput placeholder="Ex. It makes me feel..." class="fij"></textarea>
-                </mat-form-field>
-                <br>
-                <br>
-                <mat-form-field class="example-full-width" appearance="fill" class="desp">
+                <mat-form-field class="example-full-width" appearance="fill" class="arto">
                     <mat-label>Observacion:</mat-label>
-                    <textarea matInput placeholder="Ex. It makes me feel..." class="fij"></textarea>
+                    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
                 </mat-form-field>
 
-            </form>
+            </div>
 
-        </div>
+            <div class="container artic">
+                <h1>Articulos
+                </h1>
 
-        <div class="container ar">
-            <mat-form-field appearance="fill" class="art">
-                <mat-label>Articulo</mat-label>
-                <mat-select formControlName="articulo">
-                    <mat-option *ngFor="let item of articulo" [value]="item">
-                        {{item}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Cantidad:</mat-label>
-                <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="fill" class="arto">
-                <mat-label>Observacion:</mat-label>
-                <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-            </mat-form-field>
-
-        </div>
-
-        <div class="container artic">
-            <h1>Articulos
-            </h1>
-
-        </div>
-
-        <div class="container table ta">
-            <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
+            <div class="container table ta">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
 
 
-                <ng-container matColumnDef="articulo">
-                    <th mat-header-cell *matHeaderCellDef> Articulo </th>
-                    <td mat-cell *matCellDef="let element"> {{element.articulo}} </td>
-                </ng-container>
+                    <ng-container matColumnDef="articulo">
+                        <th mat-header-cell *matHeaderCellDef> Articulo </th>
+                        <td mat-cell *matCellDef="let element"> {{element.articulo}} </td>
+                    </ng-container>
 
-                <ng-container matColumnDef="cantidad">
-                    <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-                    <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
-                </ng-container>
+                    <ng-container matColumnDef="cantidad">
+                        <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+                        <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+                    </ng-container>
 
 
-                <ng-container matColumnDef="observaciones">
-                    <th mat-header-cell *matHeaderCellDef> Observaciones </th>
-                    <td mat-cell *matCellDef="let element"> {{element.observaciones}} </td>
-                </ng-container>
+                    <ng-container matColumnDef="observaciones">
+                        <th mat-header-cell *matHeaderCellDef> Observaciones </th>
+                        <td mat-cell *matCellDef="let element"> {{element.observaciones}} </td>
+                    </ng-container>
 
 
 
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+            </div>
 
         </div>
 
     </div>
-
 
 
 
