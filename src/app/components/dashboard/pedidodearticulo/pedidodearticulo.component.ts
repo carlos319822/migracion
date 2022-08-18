@@ -77,7 +77,7 @@ export class PedidodearticuloComponent implements OnInit {
   }
 
   cargarPedidos(){
-    this.service.getPedidodearticulo(this.filtros,817).subscribe((data:any)=> {
+    this.service.getPedidodearticulo(this.filtros).subscribe((data:any)=> {
       this.dataSource= new MatTableDataSource<Pedidodearticulo>(data.result.result as Pedidodearticulo[]);
       
       });
