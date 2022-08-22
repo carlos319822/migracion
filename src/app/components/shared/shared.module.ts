@@ -31,6 +31,7 @@ import { UserService } from 'src/app/services/user.service';
 import { MatDialogModule} from '@angular/material/dialog';
 import { AlmacenService } from 'src/app/services/almacen.service';
 import {MatDividerModule} from '@angular/material/divider';
+import { MatSelectFilterModule } from 'mat-select-filter';
 
 
 
@@ -63,7 +64,8 @@ import {MatDividerModule} from '@angular/material/divider';
     FormsModule,
     MatDialogModule,
     FormsModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSelectFilterModule
     
    ],
    exports:[
@@ -92,7 +94,8 @@ import {MatDividerModule} from '@angular/material/divider';
     FormsModule,
     MatDialogModule,
     FormsModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSelectFilterModule
    ],
    
    providers: [PedidodearticuloService,

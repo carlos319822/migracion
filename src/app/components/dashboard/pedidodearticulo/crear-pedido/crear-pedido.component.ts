@@ -9,6 +9,12 @@ import { DetPedido, Pedidodearticulo } from 'src/app/interfaces/pedidodearticulo
 import { Detpedidoin } from '../../../../interfaces/detpedidoin';
 import { DetPedidoService } from 'src/app/services/detpedido.service';
 import { HttpClient } from '@angular/common/http';
+import { UserService } from 'src/app/services/user.service';
+import { AlmacenService } from '../../../../services/almacen.service';
+import { Almacenin } from '../../../../interfaces/almacenin';
+import { ArticuloService } from '../../../../services/articulo.service';
+import { Articulo } from 'src/app/interfaces/articulo';
+import { MatSort } from '@angular/material/sort';
 
 
 export interface Articulos {
@@ -23,12 +29,11 @@ export interface Articulos {
   templateUrl: './crear-pedido.component.html',
   styleUrls: ['./crear-pedido.component.css']
 })
-export class CrearPedidoComponent {
+export class CrearPedidoComponent implements OnInit {
 
   model: Pedidodearticulo = {
     cod_clave: 0,
     cod_almacen: '',
-    // fecha_pedido: '2019-01-06T17:16:40',
     fecha_pedido: new Date().toISOString(),
     piso_destino: '',
     proc_destino: '',
@@ -57,18 +62,19 @@ export class CrearPedidoComponent {
     autoriza_compra:    false,
     obs:                '',
   }
+  modelo: Almacenin={
+    cod_almacen: '',
+    nom_almacen: '',
+    dir_almacen: '',
+    tlf_almacen: '',
+    obs: ''
+  }
+
+  
 
   name = new FormControl('')
 
-  listaArticulos: Articulos[] = [
-    { articulo: 'Papel Bound', cantidad: 5, observaciones: '...' },
-    { articulo: 'tijeras', cantidad: 5, observaciones: '...' },
-    { articulo: 'lapiceros', cantidad: 5, observaciones: '...' },
-    { articulo: 'Abono', cantidad: 5, observaciones: '...' }
-    
-    
-
-  ];
+ 
 
 
 
@@ -76,31 +82,54 @@ export class CrearPedidoComponent {
   cargado: any[] = ['Despacho del Secretario General', 'Comité de Dirección', 'Cooperación Técnica', 'Estrategia y Gestión de la Cooperación Técnica Internacional',
     'Administración Financiera de la Cooperacion', 'Asesoría JurIdica', 'Reforma al Sistema deSolución de Controversias',
     'Tutoría', 'Comité de Perspectiva Política', 'Comité de Planeamiento Estratégico']
-  articulo: any[] = ['papel bound', 'abono', 'lapiceros']
+  
 
 
   displayedColumns: string[] = ['articulo', 'cantidad', 'observaciones','acciones'];
-  dataSource = new MatTableDataSource(this.listaArticulos)
+  dataSource = new MatTableDataSource()
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  AlmacenList:any;
 
 
+  constructor(private service: PedidodearticuloService, private router: Router, private http: HttpClient,public auth: UserService,private SerA:AlmacenService,private Sera:ArticuloService) { }
 
-  constructor(private service: PedidodearticuloService, private router: Router, private http: HttpClient) { }
+  ListAlmacenes!:Almacenin[];
+  ListArticulo!:Articulo[];
+  almacenesSelect!: string;
+
+  
+
+ ngOnInit(): void {
+  this.LoadAlmacenes();
+  this.LoadArticulo();
+  this.obtener_cod();
+
+  localStorage.getItem('user');
 
 
-  pedidoForm = new FormGroup({
-    cod_clave: new FormControl('', Validators.required),
-    cod_almacen: new FormControl('', Validators.required),
-    piso_destino: new FormControl('', Validators.required),
-    proc_destino: new FormControl('', Validators.required),
-    prog_destino: new FormControl('', Validators.required),
-    motivo_solicitud: new FormControl('', Validators.required),
-    obs: new FormControl('', Validators.required),
-    pedido_por: new FormControl('', Validators.required),
-    cod_articulo: new FormControl('', Validators.required),
-    cant_pedida: new FormControl('', Validators.required),
+     
+ }
+
+ private LoadAlmacenes(){
+  this.SerA.getAlmList().subscribe(data=>{
+    this.ListAlmacenes = data;
+    console.log("Almacenes Loaded",this.ListAlmacenes);
   })
+ }
+
+ private LoadArticulo(){
+  this.Sera.getArtList().subscribe(data=>{
+    this.ListArticulo=data;
+
+    
+    
+    console.log("Articulos Loaded",this.ListArticulo);
+  })
+ }
+
+
+ 
 
   onSubmit() {
 
@@ -117,9 +146,18 @@ export class CrearPedidoComponent {
 
     this.service.crearpedido(this.model).subscribe((data: any) => {
       alert("Pedido Creado");
-      this.router.navigate(['/pedidoarticulo']);
+      this.router.navigate(['/dashboard/pedidoarticulo']);
     })
 
+  }
+
+  addArticulo(){
+    console.log('adding..')
+
+  }
+
+  dropArticulos(){
+    
   }
 
   actualizararticulo(){
@@ -127,7 +165,7 @@ export class CrearPedidoComponent {
   }
 
   eliminararticulo(){
-    
+
   }
 
 
@@ -135,6 +173,11 @@ export class CrearPedidoComponent {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+  }
+
+  obtener_cod(){
+
+    let cod_clave=localStorage.getItem("cod_clave");
   }
 
 

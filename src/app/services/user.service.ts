@@ -42,6 +42,18 @@ export class UserService {
     return 'No Logeado'
   }
 
+  get getcodclave(){
+    var retrievedObject = JSON.parse(localStorage.getItem('user')??' ');
+    
+    if (retrievedObject != ' ') {
+      var d : User = retrievedObject;
+      return d.cod_clave;
+    }
+    return 'No Logeado'
+  }
+
+  
+
   get isAutenticado(){
     return !!localStorage.getItem('token_value');
   }

@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Menu } from 'src/app/interfaces/menu';
 import { MenuService } from 'src/app/services/menu.service';
 import { UserService } from '../../../services/user.service';
+import { AlmacenService } from '../../../services/almacen.service';
 
 @Component({
   selector: 'app-navbar',

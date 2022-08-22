@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Almacenin } from '../interfaces/almacenin';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,14 @@ export class AlmacenService {
 
 
   constructor(private http: HttpClient) { }
+
+  getAlmList():Observable<any[]>{
+    return this.http.get<any>(this.baseUrl).pipe(map((data)=>data.result));
+  }
+
+  getAlmacenes():Observable<Almacenin[]>{
+  return this.http.get<Almacenin[]>(this.baseUrl);
+  }
 
   getAlmacen(){
 

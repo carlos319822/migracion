@@ -9,5 +9,6 @@ export interface Almacenin{
     tlf_almacen:string;
     obs:string;
     
+    
 
 }

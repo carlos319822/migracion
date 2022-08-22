@@ -1,38 +1,43 @@
 <body class="fondo">
 
+
     <br>
     <div class="inicial">
 
-        <div>
+        <form (ngSubmit)="onSubmit()">
 
-            <div class="container p">
-                <h1> <span class="urgente"> Pedido de Articulo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <mat-slide-toggle class="ur">Urgente</mat-slide-toggle></span>
-                </h1>
+            <div>
 
+
+
+                <div class="container p">
+                    <h1> <span class="urgente"> Pedido de Articulo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <mat-slide-toggle class="ur">Urgente</mat-slide-toggle></span>
+                    </h1>
+
+                </div>
+                <div class="container n">
+                    <h1>Agregar Articulo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button mat-raised-button class="bu" (click)="addArticulo"><mat-icon >add</mat-icon></button>
+                    </h1>
+
+
+                </div>
             </div>
-            <div class="container n">
-                <h1>Agregar Articulo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button mat-raised-button class="bu"><mat-icon >add</mat-icon></button>
-                </h1>
-
-
-            </div>
-        </div>
 
 
 
 
-        <div>
-            <br>
-            <br>
-            <div class="container des">
+            <div>
+                <br>
+                <br>
+                <div class="container des form-group">
 
-                <form>
+
                     <br>
                     <mat-form-field appearance="fill" class="desp">
                         <mat-label>Piso Destino</mat-label>
-                        <mat-select formControlName="piso_destino">
+                        <mat-select class="form-control" id="piso_destino" required [(ngModel)]="model.piso_destino" name="piso_destino" #name="ngModel">
                             <mat-option *ngFor="let item of piso" [value]="item">
                                 {{item}}
                             </mat-option>
@@ -42,122 +47,142 @@
 
                     <br>
                     <mat-form-field appearance="fill" class="desp">
-                        <mat-label>Cargado al Pro</mat-label>
-                        <mat-select formControlName="cargado_pro">
-                            <mat-option *ngFor="let item of cargado" [value]="item">
-                                {{item}}
+                        <mat-label>Nombre Almacen</mat-label>
+                        <mat-select class="form-control" id="cod_almacen" [(ngModel)]="model.cod_almacen" name="cod_almacen" #name="ngModel">
+                            <mat-option *ngFor="let almacenes of ListAlmacenes" [value]="almacenes.cod_almacen">
+                                {{almacenes.nom_almacen}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
+
                     <br>
                     <br>
 
                     <mat-form-field class="example-full-width" appearance="fill" class="desp">
                         <mat-label>Motivo:</mat-label>
-                        <textarea matInput placeholder="Ex. It makes me feel..." class="fij"></textarea>
+                        <textarea matInput class="fij" class="form-control" id="motivo_solicitud" [(ngModel)]="model.motivo_solicitud" name="motivo_solicitud" #name="ngModel"></textarea>
                     </mat-form-field>
                     <br>
                     <br>
                     <mat-form-field class="example-full-width" appearance="fill" class="desp">
                         <mat-label>Observacion:</mat-label>
-                        <textarea matInput placeholder="Ex. It makes me feel..." class="fij"></textarea>
+                        <textarea matInput class="fij" class="form-control" id="obs" [(ngModel)]="model.obs" name="obs" #name="ngModel"></textarea>
                     </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="fill" class="desp">
+                        <mat-label>Codigo Clave:</mat-label>
+                        <textarea matInput class="fij" class="form-control" id="cod_clave" [(ngModel)]="model.cod_clave" name="cod_clave" #name="ngModel" *ngIf="auth.isAutenticado" placeholder="{{auth.getcodclave}}"></textarea>
+
+                    </mat-form-field>
+
+
+
+                </div>
+
+                <form (submit)="addArticulo()">
+                    <div class="container ar">
+                        <mat-form-field class="art">
+                            <mat-label>Articulo</mat-label>
+                            <mat-select placeholder="Basic" class="form-control" id="cod_articulo" [(ngModel)]="modeli.cod_articulo" name="cod_articulo" #name="ngModel" #arti>
+
+                                <mat-option *ngFor="let articulos of ListArticulo" [value]="articulos.cod_articulo">
+                                    {{articulos.nom_articulo}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Cantidad:</mat-label>
+                            <textarea matInput class="form-control" id="cant_pedida" [(ngModel)]="modeli.cant_pedida" name="cant_pedida" #name="ngModel" #can></textarea>
+                        </mat-form-field>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <br>
+
+                        <mat-form-field class="example-full-width" appearance="fill" class="arto">
+                            <mat-label>Observacion:</mat-label>
+                            <textarea matInput class="form-control" id="obs" [(ngModel)]="modeli.obs" name="obs" #name="ngModel" #obs></textarea>
+                        </mat-form-field>
+
+
+
+                    </div>
 
                 </form>
 
-            </div>
-
-            <div class="container ar">
-                <mat-form-field appearance="fill" class="art">
-                    <mat-label>Articulo</mat-label>
-                    <mat-select formControlName="articulo">
-                        <mat-option *ngFor="let item of articulo" [value]="item">
-                            {{item}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Cantidad:</mat-label>
-                    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-                </mat-form-field>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <br>
-
-                <mat-form-field class="example-full-width" appearance="fill" class="arto">
-                    <mat-label>Observacion:</mat-label>
-                    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-                </mat-form-field>
-
-            </div>
-
-            <div class="container artic">
-                <h1>Articulos
-                    <button mat-raised-button class="but">limpiar</button>
-
-                </h1>
 
 
-            </div>
+                <div class="container artic">
+                    <h1>Articulos
+                        <button mat-raised-button class="but" (click)="dropArticulos">limpiar</button>
 
-            <div class="container table ta">
-                <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
-
-
-                    <ng-container matColumnDef="articulo">
-                        <th mat-header-cell *matHeaderCellDef> Articulo </th>
-                        <td mat-cell *matCellDef="let element"> {{element.articulo}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="cantidad">
-                        <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-                        <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
-                    </ng-container>
+                    </h1>
 
 
-                    <ng-container matColumnDef="observaciones">
-                        <th mat-header-cell *matHeaderCellDef> Observaciones </th>
-                        <td mat-cell *matCellDef="let element"> {{element.observaciones}} </td>
-                    </ng-container>
+                </div>
 
-                    <ng-container matColumnDef="acciones">
-                        <th mat-header-cell *matHeaderCellDef></th>
-                        <td mat-cell *matCellDef="let element" style="text-align: right">
+                <div class="container table ta">
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
 
-                            <a *ngIf="!element.enviado" class="pointer" (click)="actualizararticulo()" style="color: #1f656f" matTooltip="editar usuario">
-                                <mat-icon>edit</mat-icon>
-                            </a>
-                            <a *ngIf="!element.enviado" class="pointer" (click)="eliminararticulo()" style="color: red" matTooltip="borrar usuario">
-                                <mat-icon>delete</mat-icon>
-                            </a>
-                        </td>
-                    </ng-container>
+
+                        <ng-container matColumnDef="articulo">
+                            <th mat-header-cell *matHeaderCellDef> Articulo </th>
+                            <td mat-cell *matCellDef="let element"> {{element.articulo}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="cantidad">
+                            <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+                            <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+                        </ng-container>
+
+
+                        <ng-container matColumnDef="observaciones">
+                            <th mat-header-cell *matHeaderCellDef> Observaciones </th>
+                            <td mat-cell *matCellDef="let element"> {{element.observaciones}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="acciones">
+                            <th mat-header-cell *matHeaderCellDef></th>
+                            <td mat-cell *matCellDef="let element" style="text-align: right">
+
+                                <a *ngIf="!element.enviado" class="pointer" (click)="actualizararticulo()" style="color: #1f656f" matTooltip="editar usuario">
+                                    <mat-icon>edit</mat-icon>
+                                </a>
+                                <a *ngIf="!element.enviado" class="pointer" (click)="eliminararticulo()" style="color: red" matTooltip="borrar usuario">
+                                    <mat-icon>delete</mat-icon>
+                                </a>
+                            </td>
+                        </ng-container>
 
 
 
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                </table>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
 
 
+
+                </div>
 
             </div>
 
-        </div>
+            <div class=" buton">
+                <button mat-raised-button class="env" type="submit">Enviar </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button mat-raised-button class="guar">Guardar</button>
 
-        <div class=" buton">
-            <button mat-raised-button class="env">Enviar </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button mat-raised-button class="guar">Guardar</button>
+            </div>
 
-        </div>
+        </form>
+
+
 
     </div>
 
 
 
-
     <!--
+
+
     <h1> <span class="urgente"> Pedido de Articulo
             <mat-slide-toggle>Urgente</mat-slide-toggle></span>
     </h1>
