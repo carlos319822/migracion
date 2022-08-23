@@ -80,10 +80,10 @@
 
                 <form (submit)="addArticulo()">
                     <div class="container ar">
-                        <mat-form-field class="art">
+                        <mat-form-field appearance="fill" class="art">
                             <mat-label>Articulo</mat-label>
-                            <mat-select placeholder="Basic" class="form-control" id="cod_articulo" [(ngModel)]="modeli.cod_articulo" name="cod_articulo" #name="ngModel" #arti>
-
+                            <mat-select class="form-control" id="cod_articulo" [(ngModel)]="modeli.cod_articulo" name="cod_articulo" #name="ngModel" #arti>
+                                <mat-select-filter [placeholder]="'Filter'" [displayMember]="'nom_articulo'" [array]="ListArticulo" (filteredReturn)="ListArticulo =$event"></mat-select-filter>
                                 <mat-option *ngFor="let articulos of ListArticulo" [value]="articulos.cod_articulo">
                                     {{articulos.nom_articulo}}
                                 </mat-option>
