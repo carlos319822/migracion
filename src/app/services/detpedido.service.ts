@@ -12,7 +12,8 @@ export class DetPedidoService {
  articulos!:DetPedido[];
 
   constructor(private http: HttpClient) {
-    this.articulos=[{
+    this.articulos=[];
+    /*this.articulos=[{
       cod_articulo: 11,
       cant_pedida: 1,
       cant_aceptada: 0,
@@ -31,14 +32,40 @@ export class DetPedidoService {
         costo_cant_entrega: 0,
         pedido_para_compra: false,
         autoriza_compra: false,
-        obs: ''}];
+        obs: ''}];*/
    }
 
    getarticulos(){
-    return this.articulos;
+
+    if(localStorage.getItem('articulos')===null){
+      return this.articulos;
+    }else{
+      this.articulos=JSON.parse(localStorage.getItem('articulos')!);
+      return this.articulos;
+    }
+
+    
+
    }
    addarticulo(articulo:DetPedido){
     this.articulos.push(articulo);
+
+    let articulos=[];
+
+    if(localStorage.getItem('articulos')===null){
+
+      articulos.push(articulo);
+
+    localStorage.setItem('articulos',JSON.stringify(articulos));
+    }else{
+      articulos=JSON.parse(localStorage.getItem('articulos')!);
+      articulos.push(articulo);
+      localStorage.setItem('articulos',JSON.stringify(articulos));
+    }
+    
+
+    //this.articulos.push(articulo);
+
    }
 
   getDetPedido(){
