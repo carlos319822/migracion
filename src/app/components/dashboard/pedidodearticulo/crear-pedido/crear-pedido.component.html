@@ -68,9 +68,10 @@
                         <mat-label>Observacion:</mat-label>
                         <textarea matInput class="fij" class="form-control" id="obs" [(ngModel)]="model.obs" name="obs" #name="ngModel"></textarea>
                     </mat-form-field>
+
                     <mat-form-field class="example-full-width" appearance="fill" class="desp">
                         <mat-label>Codigo Clave:</mat-label>
-                        <textarea matInput class="fij" class="form-control" id="cod_clave" [(ngModel)]="model.cod_clave" name="cod_clave" #name="ngModel" *ngIf="auth.isAutenticado" placeholder="{{auth.getcodclave}}"></textarea>
+                        <textarea matInput class="fij" class="form-control" id="cod_clave" [(ngModel)]="model.cod_clave" name="cod_clave" #name="ngModel"></textarea>
 
                     </mat-form-field>
 

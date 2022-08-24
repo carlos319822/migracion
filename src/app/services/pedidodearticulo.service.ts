@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Pedidodearticulo } from '../interfaces/pedidodearticulo';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PedidoFiltros } from '../interfaces/pedidofiltros';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -47,4 +48,5 @@ export class PedidodearticuloService {
     return this.http.put(this.baseUrl+id_pedido, pedido);
   }
 
+ 
 }

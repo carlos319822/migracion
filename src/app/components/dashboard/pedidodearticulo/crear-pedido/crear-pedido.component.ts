@@ -15,6 +15,7 @@ import { Almacenin } from '../../../../interfaces/almacenin';
 import { ArticuloService } from '../../../../services/articulo.service';
 import { Articulo } from 'src/app/interfaces/articulo';
 import { MatSort } from '@angular/material/sort';
+import { User } from 'src/app/interfaces/user';
 
 
 export interface Articulos {
@@ -97,6 +98,9 @@ export class CrearPedidoComponent implements OnInit {
   ListAlmacenes!:Almacenin[];
   ListArticulo!:Articulo[];
   almacenesSelect!: string;
+  datoUsuario:any;
+
+  
 
   
 
@@ -104,12 +108,40 @@ export class CrearPedidoComponent implements OnInit {
   this.LoadAlmacenes();
   this.LoadArticulo();
   this.obtener_cod();
+  let cod:User;
+  cod=JSON.parse(localStorage.getItem('user')!);
 
-  localStorage.getItem('user');
+  this.model={...this.model,cod_clave:cod.cod_clave??0};
 
 
      
  }
+
+ obtenerlocal(){
+
+  let cod:User[];
+
+  cod=JSON.parse(localStorage.getItem('user')!);
+    this.model={...this.model,cod_clave:12345}
+  console.log(cod);
+ }
+
+ grabarlocal(){
+  let nombre:string="Fernando"
+
+  let persona={
+    nombre:"juan",
+    edad:18,
+    coords:{
+      lat:10,
+      lng:-10
+    }
+  }
+  localStorage.setItem("nombre",nombre);
+  localStorage.setItem("persona",JSON.stringify(persona));
+ }
+
+ 
 
  private LoadAlmacenes(){
   this.SerA.getAlmList().subscribe(data=>{

@@ -26,7 +26,7 @@ export class UserService {
   }
 
   logout(){
-    localStorage.removeItem('User');
+    localStorage.removeItem('user');
     localStorage.removeItem('token_value');
     this.router.navigate(['/login']);
     //window.location.reload();
