@@ -1,5 +1,5 @@
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, NgModule } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -31,6 +31,8 @@ export interface Articulos {
   styleUrls: ['./crear-pedido.component.css']
 })
 export class CrearPedidoComponent implements OnInit {
+
+  cod_articulo='';
 
   model: Pedidodearticulo = {
     cod_clave: 0,
@@ -71,20 +73,9 @@ export class CrearPedidoComponent implements OnInit {
     obs: ''
   }
 
+    piso: any[] = ['Sotano', 'Primero', 'Segundo', 'Tercero', 'Cuarto', 'Quinto', 'Sexto', 'Septimo', 'Otros']
   
-
-  name = new FormControl('')
-
- 
-
-
-
-  piso: any[] = ['Sotano', 'Primero', 'Segundo', 'Tercero', 'Cuarto', 'Quinto', 'Sexto', 'Septimo', 'Otros']
-  cargado: any[] = ['Despacho del Secretario General', 'Comité de Dirección', 'Cooperación Técnica', 'Estrategia y Gestión de la Cooperación Técnica Internacional',
-    'Administración Financiera de la Cooperacion', 'Asesoría JurIdica', 'Reforma al Sistema deSolución de Controversias',
-    'Tutoría', 'Comité de Perspectiva Política', 'Comité de Planeamiento Estratégico']
-  
-
+    
 
   displayedColumns: string[] = ['articulo', 'cantidad', 'observaciones','acciones'];
   dataSource = new MatTableDataSource()
@@ -92,8 +83,10 @@ export class CrearPedidoComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   AlmacenList:any;
 
+  articulos!:DetPedido[];
+  ngModel: any;
 
-  constructor(private service: PedidodearticuloService, private router: Router, private http: HttpClient,public auth: UserService,private SerA:AlmacenService,private Sera:ArticuloService) { }
+  constructor(private service: PedidodearticuloService, private router: Router, private http: HttpClient,public auth: UserService,private SerA:AlmacenService,private Sera:ArticuloService,private det:DetPedidoService) { }
 
   ListAlmacenes!:Almacenin[];
   ListArticulo!:Articulo[];
@@ -107,13 +100,18 @@ export class CrearPedidoComponent implements OnInit {
  ngOnInit(): void {
   this.LoadAlmacenes();
   this.LoadArticulo();
-  this.obtener_cod();
+  this.llenatable();
+
+  //tomar codigo clave automatico
   let cod:User;
   cod=JSON.parse(localStorage.getItem('user')!);
 
   this.model={...this.model,cod_clave:cod.cod_clave??0};
 
+//tomar los datos de los articulos
 
+  this.articulos=this.det.getarticulos();
+  
      
  }
 
@@ -126,19 +124,9 @@ export class CrearPedidoComponent implements OnInit {
   console.log(cod);
  }
 
- grabarlocal(){
-  let nombre:string="Fernando"
-
-  let persona={
-    nombre:"juan",
-    edad:18,
-    coords:{
-      lat:10,
-      lng:-10
-    }
-  }
-  localStorage.setItem("nombre",nombre);
-  localStorage.setItem("persona",JSON.stringify(persona));
+ llenatable(){
+  let articulo:Articulo[];
+ articulo=JSON.parse(localStorage.getItem('articulo')!);
  }
 
  
@@ -146,22 +134,18 @@ export class CrearPedidoComponent implements OnInit {
  private LoadAlmacenes(){
   this.SerA.getAlmList().subscribe(data=>{
     this.ListAlmacenes = data;
-    console.log("Almacenes Loaded",this.ListAlmacenes);
+    //console.log("Almacenes Loaded",this.ListAlmacenes);
   })
  }
 
  private LoadArticulo(){
   this.Sera.getArtList().subscribe(data=>{
     this.ListArticulo=data;
-
-    
-    
-    console.log("Articulos Loaded",this.ListArticulo);
+     
+    //console.log("Articulos Loaded",this.ListArticulo);
   })
  }
 
-
- 
 
   onSubmit() {
 
@@ -184,9 +168,25 @@ export class CrearPedidoComponent implements OnInit {
   }
 
   addArticulo(){
-    console.log('adding..')
+
+    this.det.addarticulo(this.modeli)
+   
+    /*let articulo:DetPedido[]=[];
+    localStorage.setItem('articulo',JSON.stringify(this.modeli));
+    
+    if(localStorage.getItem('articulo')==null){
+      articulo.push(this.modeli);
+      localStorage.setItem('articulo',JSON.stringify(this.modeli));
+    }else{
+      articulo=JSON.parse(localStorage.getItem('articulo')!);
+      articulo.push(this.modeli);
+    }*/
+    console.log(this.det.getarticulos());
+  
+
 
   }
+  
 
   dropArticulos(){
     
@@ -207,10 +207,7 @@ export class CrearPedidoComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  obtener_cod(){
-
-    let cod_clave=localStorage.getItem("cod_clave");
-  }
+  
 
 
 

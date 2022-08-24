@@ -47,6 +47,7 @@ export class PedidodearticuloService {
   actualizarPedido(id_pedido:number,pedido:Pedidodearticulo){
     return this.http.put(this.baseUrl+id_pedido, pedido);
   }
+  
 
  
 }

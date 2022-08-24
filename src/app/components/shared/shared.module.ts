@@ -32,6 +32,8 @@ import { MatDialogModule} from '@angular/material/dialog';
 import { AlmacenService } from 'src/app/services/almacen.service';
 import {MatDividerModule} from '@angular/material/divider';
 import { MatSelectFilterModule } from 'mat-select-filter';
+import { ArticuloService } from '../../services/articulo.service';
+import { DetPedidoService } from '../../services/detpedido.service';
 
 
 
@@ -99,6 +101,6 @@ import { MatSelectFilterModule } from 'mat-select-filter';
    ],
    
    providers: [PedidodearticuloService,
-    UserService,AlmacenService],
+    UserService,AlmacenService,ArticuloService,DetPedidoService],
 })
 export class SharedModule { }

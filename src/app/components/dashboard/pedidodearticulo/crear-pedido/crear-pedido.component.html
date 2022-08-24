@@ -1,4 +1,4 @@
-<body class="fondo">
+<div class="fondo">
 
 
     <br>
@@ -6,23 +6,35 @@
 
         <form (ngSubmit)="onSubmit()">
 
+
+
             <div>
 
+                <form (ngSubmit)="onSubmit()">
+                    <div class="container p">
+                        <h1> <span class="urgente"> Pedido de Articulo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <mat-slide-toggle class="ur">Urgente</mat-slide-toggle></span>
+                        </h1>
+
+                    </div>
+                </form>
+
+                <form (submit)="addArticulo()">
+                    <div class="container n">
+                        <h1>Agregar Articulo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <button mat-button class="bu" (click)="addArticulo()"><mat-icon >add</mat-icon></button>
 
 
-                <div class="container p">
-                    <h1> <span class="urgente"> Pedido de Articulo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <mat-slide-toggle class="ur">Urgente</mat-slide-toggle></span>
-                    </h1>
-
-                </div>
-                <div class="container n">
-                    <h1>Agregar Articulo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button mat-raised-button class="bu" (click)="addArticulo"><mat-icon >add</mat-icon></button>
-                    </h1>
+                        </h1>
 
 
-                </div>
+                    </div>
+                </form>
+
+
+
+
             </div>
 
 
@@ -79,16 +91,21 @@
 
                 </div>
 
-                <form (submit)="addArticulo()">
+                <form (submit)="addArticulo()" id="borr">
+
+
                     <div class="container ar">
                         <mat-form-field appearance="fill" class="art">
                             <mat-label>Articulo</mat-label>
-                            <mat-select class="form-control" id="cod_articulo" [(ngModel)]="modeli.cod_articulo" name="cod_articulo" #name="ngModel" #arti>
-                                <mat-select-filter [placeholder]="'Filter'" [displayMember]="'nom_articulo'" [array]="ListArticulo" (filteredReturn)="ListArticulo =$event"></mat-select-filter>
-                                <mat-option *ngFor="let articulos of ListArticulo" [value]="articulos.cod_articulo">
-                                    {{articulos.nom_articulo}}
-                                </mat-option>
-                            </mat-select>
+                            <div class="from Group">
+                                <mat-select class="form-control" id="cod_articulo" [(ngModel)]="modeli.cod_articulo" name="cod_articulo" #name="ngModel">
+                                    <mat-select-filter [placeholder]="'Filter'" [displayMember]="'nom_articulo'" [array]="ListArticulo" (filteredReturn)="ListArticulo =$event"></mat-select-filter>
+                                    <mat-option *ngFor="let articulos of ListArticulo" [value]="articulos.cod_articulo">
+                                        {{articulos.nom_articulo}}
+                                    </mat-option>
+                                </mat-select>
+                            </div>
+
                         </mat-form-field>
 
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -122,24 +139,30 @@
 
                 </div>
 
-                <div class="container table ta">
+                <li class="container ta" *ngFor="let arti of articulos">
+                    codigo: {{arti.cod_articulo}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cantidad: {{arti.cant_pedida}}
+                </li>
+
+
+                <!--
+                    <div class="container table ta">
                     <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
 
 
                         <ng-container matColumnDef="articulo">
                             <th mat-header-cell *matHeaderCellDef> Articulo </th>
-                            <td mat-cell *matCellDef="let element"> {{element.articulo}} </td>
+                            <div *ngFor="let arti of articulos ">{{arti.cod_articulo}}</div>
                         </ng-container>
 
                         <ng-container matColumnDef="cantidad">
                             <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-                            <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+                            <div *ngFor="let arti of articulos ">{{arti.cant_pedida}}</div>
                         </ng-container>
 
 
                         <ng-container matColumnDef="observaciones">
                             <th mat-header-cell *matHeaderCellDef> Observaciones </th>
-                            <td mat-cell *matCellDef="let element"> {{element.observaciones}} </td>
+                            <div *ngFor="let arti of articulos ">{{arti.obs}}</div>
                         </ng-container>
 
                         <ng-container matColumnDef="acciones">
@@ -164,11 +187,16 @@
 
 
                 </div>
+                -->
+
+
+
+
 
             </div>
 
             <div class=" buton">
-                <button mat-raised-button class="env" type="submit">Enviar </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button mat-raised-button class="env" (click)="onSubmit">Enviar </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button mat-raised-button class="guar">Guardar</button>
 
             </div>
@@ -237,7 +265,7 @@
         </button>
         </form>
     </div>-->
-</body>
+</div>
 
 
 <!---
