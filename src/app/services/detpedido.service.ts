@@ -68,6 +68,10 @@ export class DetPedidoService {
 
    }
 
+   droparticulos(){
+    this.articulos.push();
+   }
+
   getDetPedido(){
 
 

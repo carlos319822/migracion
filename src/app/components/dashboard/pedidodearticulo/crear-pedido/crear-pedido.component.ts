@@ -130,6 +130,7 @@ export class CrearPedidoComponent implements OnInit {
  ngOnInit(): void {
   this.LoadAlmacenes();
   this.LoadArticulo();
+  this.llenatable();
 
   //tomar codigo clave automatico
   let cod:User;
@@ -139,7 +140,7 @@ export class CrearPedidoComponent implements OnInit {
 
 //tomar los datos de los articulos
 
-  this.articulos=this.det.getarticulos();
+  
   
      
  }
@@ -155,8 +156,8 @@ export class CrearPedidoComponent implements OnInit {
 
  llenatable(){
 
-  this.det.getarticulos();
-  
+  //this.det.getarticulos();
+  this.articulos=this.det.getarticulos();
 
   
  }
@@ -204,18 +205,7 @@ export class CrearPedidoComponent implements OnInit {
 
     this.det.addarticulo(this.modeli)
    
-    /*let articulo:DetPedido[]=[];
-    localStorage.setItem('articulo',JSON.stringify(this.modeli));
-    
-    if(localStorage.getItem('articulo')==null){
-      articulo.push(this.modeli);
-      localStorage.setItem('articulo',JSON.stringify(this.modeli));
-    }else{
-      articulo=JSON.parse(localStorage.getItem('articulo')!);
-      articulo.push(this.modeli);
-    }*/
-    //this.adart.push(this.modeli)
-    
+       
     console.log(this.adart);
 
   return false;
@@ -226,6 +216,10 @@ export class CrearPedidoComponent implements OnInit {
 
   dropArticulos(){
     
+    
+    localStorage.removeItem('articulos');
+
+    window.location.reload();
   }
 
   actualizararticulo(){

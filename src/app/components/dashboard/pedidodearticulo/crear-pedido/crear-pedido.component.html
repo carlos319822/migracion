@@ -128,16 +128,18 @@
 
                 </form>
 
+                <form (submit)="dropArticulos()">
+                    <div class="container artic">
+                        <h1>Articulos
+                            <button mat-raised-button class="but" (click)="dropArticulos">limpiar</button>
+
+                        </h1>
 
 
-                <div class="container artic">
-                    <h1>Articulos
-                        <button mat-raised-button class="but" (click)="dropArticulos">limpiar</button>
-
-                    </h1>
+                    </div>
+                </form>
 
 
-                </div>
 
                 <!--
                     <li class="container ta" *ngFor="let arti of articulos">
