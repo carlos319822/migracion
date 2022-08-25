@@ -158,11 +158,7 @@ export class CrearPedidoComponent implements OnInit {
  llenatable(){
 
   this.det.getarticulos();
-  this.Sera.getArtList().subscribe(data=>{
-    this.ListArticulo=data;
-     
-    //console.log("Articulos Loaded",this.ListArticulo);
-  })
+  
 
   
  }
@@ -224,7 +220,6 @@ export class CrearPedidoComponent implements OnInit {
     
     console.log(this.adart);
 
-    this.llenatable();
   
 
 
