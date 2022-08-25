@@ -32,7 +32,7 @@ export interface Articulos {
 })
 export class CrearPedidoComponent implements OnInit {
 
-  cod_articulo='';
+  
 
   model: Pedidodearticulo = {
     cod_clave: 0,
@@ -76,17 +76,47 @@ export class CrearPedidoComponent implements OnInit {
     piso: any[] = ['Sotano', 'Primero', 'Segundo', 'Tercero', 'Cuarto', 'Quinto', 'Sexto', 'Septimo', 'Otros']
   
     
-
-  displayedColumns: string[] = ['articulo', 'cantidad', 'observaciones','acciones'];
-  dataSource = new MatTableDataSource()
+    dataSource = new MatTableDataSource()
+  displayedColumns: string[] = ['articulo', 'cantidad', 'observaciones'];
+  
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   AlmacenList:any;
 
-  articulos!:DetPedido[];
+  articulos:DetPedido[]=[];
   ngModel: any;
 
-  constructor(private service: PedidodearticuloService, private router: Router, private http: HttpClient,public auth: UserService,private SerA:AlmacenService,private Sera:ArticuloService,private det:DetPedidoService) { }
+  adart:DetPedido[]=[];
+
+  art!:DetPedido[];
+ 
+
+  
+
+  /*adart={cod_articulo: 11,
+    cant_pedida: 1,
+    cant_aceptada: 0,
+    cant_entregada: 0,
+    cant_por_entregar: 0,
+    costo_cant_entrega: 0,
+    pedido_para_compra: false,
+    autoriza_compra: false,
+    obs: ''}*/
+
+   // arr= Object.entries(this.adart);
+
+  constructor(private service: PedidodearticuloService, private router: Router, private http: HttpClient,public auth: UserService,private SerA:AlmacenService,private Sera:ArticuloService,private det:DetPedidoService) { 
+    this.adart=[{cod_articulo: 11,
+      cant_pedida: 1,
+      cant_aceptada: 0,
+      cant_entregada: 0,
+      cant_por_entregar: 0,
+      costo_cant_entrega: 0,
+      pedido_para_compra: false,
+      autoriza_compra: false,
+      obs: ''}]
+      
+  }
 
   ListAlmacenes!:Almacenin[];
   ListArticulo!:Articulo[];
@@ -113,6 +143,7 @@ export class CrearPedidoComponent implements OnInit {
   this.articulos=this.det.getarticulos();
   
      
+  console.log(this.adart);
  }
 
  obtenerlocal(){
@@ -125,8 +156,15 @@ export class CrearPedidoComponent implements OnInit {
  }
 
  llenatable(){
-  let articulo:Articulo[];
- articulo=JSON.parse(localStorage.getItem('articulo')!);
+
+  this.det.getarticulos();
+  this.Sera.getArtList().subscribe(data=>{
+    this.ListArticulo=data;
+     
+    //console.log("Articulos Loaded",this.ListArticulo);
+  })
+
+  
  }
 
  
@@ -169,9 +207,10 @@ export class CrearPedidoComponent implements OnInit {
 
   addArticulo(){
 
+
     this.det.addarticulo(this.modeli)
    
-    /*let articulo:DetPedido[]=[];
+    let articulo:DetPedido[]=[];
     localStorage.setItem('articulo',JSON.stringify(this.modeli));
     
     if(localStorage.getItem('articulo')==null){
@@ -180,8 +219,12 @@ export class CrearPedidoComponent implements OnInit {
     }else{
       articulo=JSON.parse(localStorage.getItem('articulo')!);
       articulo.push(this.modeli);
-    }*/
-    console.log(this.det.getarticulos());
+    }
+    //this.adart.push(this.modeli)
+    
+    console.log(this.adart);
+
+    this.llenatable();
   
 
 

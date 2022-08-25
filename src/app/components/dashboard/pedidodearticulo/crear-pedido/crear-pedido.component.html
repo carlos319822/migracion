@@ -139,30 +139,65 @@
 
                 </div>
 
-                <li class="container ta" *ngFor="let arti of articulos">
+                <!--
+                    <li class="container ta" *ngFor="let arti of articulos">
                     codigo: {{arti.cod_articulo}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cantidad: {{arti.cant_pedida}}
                 </li>
+                -->
 
 
-                <!--
-                    <div class="container table ta">
-                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
+
+
+
+                <div class="container table ta">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Codigo Articulo</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Observaciones</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td *ngFor="let arti of articulos">{{arti.cod_articulo}}</td>
+                                <td *ngFor="let arti of articulos">{{arti.cant_pedida}}</td>
+                                <td *ngFor="let arti of articulos">{{arti.obs}}</td>
+                                <td *matCellDef="let element">
+                                    <a *ngIf="!element.enviado" class="pointer" (click)="actualizararticulo()" style="color: #1f656f" matTooltip="editar usuario">
+                                        <mat-icon>edit</mat-icon>
+                                    </a>
+                                    <a *ngIf="!element.enviado" class="pointer" (click)="eliminararticulo()" style="color: red" matTooltip="borrar usuario">
+                                        <mat-icon>delete</mat-icon>
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+
+                    <!--
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
 
 
                         <ng-container matColumnDef="articulo">
                             <th mat-header-cell *matHeaderCellDef> Articulo </th>
-                            <div *ngFor="let arti of articulos ">{{arti.cod_articulo}}</div>
+                            <td *ngFor="let arti of articulos">{{arti.cod_articulo}}</td>
                         </ng-container>
 
                         <ng-container matColumnDef="cantidad">
                             <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-                            <div *ngFor="let arti of articulos ">{{arti.cant_pedida}}</div>
+                            <div *ngFor="let arti of  ">{{arti}}</div>
                         </ng-container>
 
 
                         <ng-container matColumnDef="observaciones">
                             <th mat-header-cell *matHeaderCellDef> Observaciones </th>
-                            <div *ngFor="let arti of articulos ">{{arti.obs}}</div>
+                            <div *ngFor="let arti of  ">{{arti}}</div>
                         </ng-container>
 
                         <ng-container matColumnDef="acciones">
@@ -180,14 +215,19 @@
 
 
 
+
+
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                     </table>
+-->
+
+
+
 
 
 
                 </div>
-                -->
 
 
 
