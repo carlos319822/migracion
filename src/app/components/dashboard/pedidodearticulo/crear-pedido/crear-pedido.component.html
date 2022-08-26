@@ -13,7 +13,7 @@
                 <form (ngSubmit)="onSubmit()">
                     <div class="container p">
                         <h1> <span class="urgente"> Pedido de Articulo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <mat-slide-toggle class="ur">Urgente</mat-slide-toggle></span>
+                            <mat-slide-toggle class="ur" id="urgente"  [(ngModel)]="model.urgente" name="urgente" #name="ngModel">Urgente</mat-slide-toggle></span>
                         </h1>
 
                     </div>
