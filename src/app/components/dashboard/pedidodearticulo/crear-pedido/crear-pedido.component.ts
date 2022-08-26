@@ -53,7 +53,6 @@ export class CrearPedidoComponent implements OnInit {
     detPedido: [],
   }
 
-
   modeli: DetPedido = {
     cod_articulo:       0,
     cant_pedida:        0,
@@ -106,15 +105,15 @@ export class CrearPedidoComponent implements OnInit {
    // arr= Object.entries(this.adart);
 
   constructor(private service: PedidodearticuloService, private router: Router, private http: HttpClient,public auth: UserService,private SerA:AlmacenService,private Sera:ArticuloService,private det:DetPedidoService) { 
-    this.adart=[{cod_articulo: 11,
-      cant_pedida: 1,
-      cant_aceptada: 0,
-      cant_entregada: 0,
-      cant_por_entregar: 0,
-      costo_cant_entrega: 0,
-      pedido_para_compra: false,
-      autoriza_compra: false,
-      obs: ''}]
+    // this.adart=[{cod_articulo: 11,
+    //   cant_pedida: 1,
+    //   cant_aceptada: 0,
+    //   cant_entregada: 0,
+    //   cant_por_entregar: 0,
+    //   costo_cant_entrega: 0,
+    //   pedido_para_compra: false,
+    //   autoriza_compra: false,
+    //   obs: ''}]
       
   }
 
@@ -182,9 +181,9 @@ export class CrearPedidoComponent implements OnInit {
 
   onSubmit() {
 
-    this.model.detPedido.push(this.modeli)
+    this.model.detPedido = this.adart
     console.log(this.model)
-    console.log(this.modeli)
+    // console.log(this.modeli)
 
 
     /*this.service.crearpedido(this.model).subscribe((data:any)=> {
@@ -204,10 +203,21 @@ export class CrearPedidoComponent implements OnInit {
 
 
     this.det.addarticulo(this.modeli)
-   
-       
-    console.log(this.adart);
+    
+    this.adart.push({
+      cod_articulo: this.modeli.cod_articulo,
+      cant_pedida: this.modeli.cant_pedida,
+      cant_aceptada: this.modeli.cant_aceptada,
+      cant_entregada: this.modeli.cant_entregada,
+      cant_por_entregar: this.modeli.cant_por_entregar,
+      costo_cant_entrega: this.modeli.costo_cant_entrega,
+      pedido_para_compra: this.modeli.pedido_para_compra,
+      autoriza_compra: this.modeli.autoriza_compra,
+      obs: this.modeli.obs
+    })
 
+    console.log(this.adart);
+  
   return false;
 
 
