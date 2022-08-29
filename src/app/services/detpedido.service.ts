@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DetPedido } from '../interfaces/pedidodearticulo';
+import { Subject, Observable, pipe } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class DetPedidoService {
   baseUrl: string ='https://localhost:7265/api/DetPedido';
 
  articulos!:DetPedido[];
+
 
   constructor(private http: HttpClient) {
     this.articulos=[];
@@ -35,13 +37,18 @@ export class DetPedidoService {
         obs: ''}];*/
    }
 
+   
+
    getarticulos(){
 
     if(localStorage.getItem('articulos')===null){
       return this.articulos;
     }else{
       this.articulos=JSON.parse(localStorage.getItem('articulos')!);
+     
       return this.articulos;
+      
+      
     }
 
     
@@ -68,8 +75,8 @@ export class DetPedidoService {
 
    }
 
-   droparticulos(){
-    this.articulos.push();
+   droparticulos(articulo:DetPedido){
+    this.articulos.push(articulo);
    }
 
   getDetPedido(){
@@ -86,5 +93,7 @@ export class DetPedidoService {
   crearpedido(pedido: DetPedido ){
     return this.http.post(this.baseUrl, pedido);
   }
+
+ 
 
 }

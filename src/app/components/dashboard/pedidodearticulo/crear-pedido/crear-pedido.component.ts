@@ -93,7 +93,6 @@ export class CrearPedidoComponent implements OnInit {
   art!:DetPedido[];
  
 
-  
 
   /*adart={cod_articulo: 11,
     cant_pedida: 1,
@@ -237,8 +236,8 @@ export class CrearPedidoComponent implements OnInit {
     
     
     localStorage.removeItem('articulos');
-
     window.location.reload();
+    
   }
 
   actualizararticulo(){
