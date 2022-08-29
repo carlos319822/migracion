@@ -1,4 +1,239 @@
-<div class="fondo">
+<ng-container *ngIf="show">
+    <div class="modalc">
+        <div class="modalc-content" #modalBack>
+
+            <!--
+                <div class="modalc-header">
+                <h4 class="modalc-title">
+                    Crear Pedido
+                </h4>
+
+                <ng-template [ngTemplateOutlet]="closeIcon"></ng-template>
+
+                
+            </div>
+            -->
+
+            <div class="fondo">
+
+
+                <br>
+                <div class="inicial">
+
+                    <form (ngSubmit)="onSubmit()">
+
+
+
+                        <div>
+
+                            <form (ngSubmit)="onSubmit()">
+                                <div class="container p">
+                                    <h1> <span class="urgente"> Pedido de Articulo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <mat-slide-toggle class="ur" id="urgente"  [(ngModel)]="model.urgente" name="urgente" #name="ngModel">Urgente</mat-slide-toggle></span>
+                                    </h1>
+
+                                </div>
+                            </form>
+
+                            <form (submit)="addArticulo()">
+                                <div class="container n">
+                                    <h1>Agregar Articulo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                        <button mat-button class="bu" (click)="addArticulo()"><mat-icon >add</mat-icon></button>
+
+
+                                    </h1>
+
+
+                                </div>
+                            </form>
+
+
+
+
+                        </div>
+
+
+
+
+                        <div>
+                            <br>
+                            <br>
+                            <div class="container des form-group">
+
+
+                                <br>
+                                <mat-form-field appearance="fill" class="desp">
+                                    <mat-label>Piso Destino</mat-label>
+                                    <mat-select class="form-control" id="piso_destino" required [(ngModel)]="model.piso_destino" name="piso_destino" #name="ngModel">
+                                        <mat-option *ngFor="let item of piso" [value]="item">
+                                            {{item}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <br>
+
+                                <br>
+                                <mat-form-field appearance="fill" class="desp">
+                                    <mat-label>Nombre Almacen</mat-label>
+                                    <mat-select class="form-control" id="cod_almacen" [(ngModel)]="model.cod_almacen" name="cod_almacen" #name="ngModel">
+                                        <mat-option *ngFor="let almacenes of ListAlmacenes" [value]="almacenes.cod_almacen">
+                                            {{almacenes.nom_almacen}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                                <br>
+                                <br>
+
+                                <mat-form-field class="example-full-width" appearance="fill" class="desp">
+                                    <mat-label>Motivo:</mat-label>
+                                    <textarea matInput class="fij" class="form-control" id="motivo_solicitud" [(ngModel)]="model.motivo_solicitud" name="motivo_solicitud" #name="ngModel"></textarea>
+                                </mat-form-field>
+                                <br>
+                                <br>
+                                <mat-form-field class="example-full-width" appearance="fill" class="desp">
+                                    <mat-label>Observacion:</mat-label>
+                                    <textarea matInput class="fij" class="form-control" id="obs" [(ngModel)]="model.obs" name="obs" #name="ngModel"></textarea>
+                                </mat-form-field>
+
+                                <mat-form-field class="example-full-width" appearance="fill" class="desp">
+                                    <mat-label>Codigo Clave:</mat-label>
+                                    <textarea matInput class="fij" class="form-control" id="cod_clave" [(ngModel)]="model.cod_clave" name="cod_clave" #name="ngModel"></textarea>
+
+                                </mat-form-field>
+
+
+
+                            </div>
+
+                            <form (submit)="addArticulo()" id="borr">
+
+
+                                <div class="container ar">
+                                    <mat-form-field appearance="fill" class="art">
+                                        <mat-label>Articulo</mat-label>
+                                        <div class="from Group">
+                                            <mat-select class="form-control" id="cod_articulo" [(ngModel)]="modeli.cod_articulo" name="cod_articulo" #name="ngModel">
+                                                <mat-select-filter [placeholder]="'Filter'" [displayMember]="'nom_articulo'" [array]="ListArticulo" (filteredReturn)="ListArticulo =$event"></mat-select-filter>
+                                                <mat-option *ngFor="let articulos of ListArticulo" [value]="articulos.cod_articulo">
+                                                    {{articulos.nom_articulo}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </div>
+
+                                    </mat-form-field>
+
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Cantidad:</mat-label>
+                                        <textarea matInput class="form-control" id="cant_pedida" [(ngModel)]="modeli.cant_pedida" name="cant_pedida" #name="ngModel" #can></textarea>
+                                    </mat-form-field>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <br>
+
+                                    <mat-form-field class="example-full-width" appearance="fill" class="arto">
+                                        <mat-label>Observacion:</mat-label>
+                                        <textarea matInput class="form-control" id="obs" [(ngModel)]="modeli.obs" name="obs" #name="ngModel" #obs></textarea>
+                                    </mat-form-field>
+
+
+
+                                </div>
+
+                            </form>
+
+                            <form (submit)="dropArticulos()">
+                                <div class="container artic">
+                                    <h1>Articulos
+                                        <button mat-raised-button class="but" (click)="dropArticulos">limpiar</button>
+
+                                    </h1>
+
+
+                                </div>
+                            </form>
+
+                            <div class="container table ta col">
+
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Codigo Articulo</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Observaciones</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let arti of articulos">
+
+                                            <td>{{arti.cod_articulo}}</td>
+                                            <td>{{arti.cant_pedida}}</td>
+                                            <td>{{arti.obs}}</td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+
+
+
+                            </div>
+
+
+
+
+
+                        </div>
+
+                        <div class=" buton">
+                            <button mat-raised-button class="env" (click)="onSubmit">Enviar </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button mat-raised-button class="guar">Guardar</button>
+
+                        </div>
+
+                    </form>
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+</ng-container>
+
+
+
+<ng-template #closeIcon>
+    <svg xmlns="http://www.w3.org/2000/svg" width="103.536" height="103.536" viewBox="0 0 103.536 103.536" (click)="show = false;"> 
+        <g id="Group 65" data-name="Group 65" transform="translate(-142.732 -214.732)">
+
+        <line id="Line_7" data-name="Line 7" x2="100" y2="100" transform="translate(144.5 216.5)" fill="none" stroke="#5ce1e6"
+        
+        stroke-width="5"/> 
+        <line id="Line_8" data-name="Line 8" y1="99" x2="99" transform="translate(144.5 216.5)" fill="none" stroke="#5cele6" stroke-width="5"/>
+        
+        </g>
+        
+    </svg>
+</ng-template>
+
+
+<!--
+    <div class="fondo">
 
 
     <br>
@@ -139,18 +374,6 @@
                     </div>
                 </form>
 
-
-
-                <!--
-                    <li class="container ta" *ngFor="let arti of articulos">
-                    codigo: {{arti.cod_articulo}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cantidad: {{arti.cant_pedida}}
-                </li>
-                -->
-
-
-
-
-
                 <div class="container table ta col">
 
                     <table class="table table-striped table-bordered table-hover">
@@ -173,51 +396,6 @@
 
                         </tbody>
                     </table>
-
-
-                    <!--
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
-
-
-                        <ng-container matColumnDef="articulo">
-                            <th mat-header-cell *matHeaderCellDef> Articulo </th>
-                            <td *ngFor="let arti of articulos">{{arti.cod_articulo}}</td>
-                        </ng-container>
-
-                        <ng-container matColumnDef="cantidad">
-                            <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-                            <div *ngFor="let arti of  ">{{arti}}</div>
-                        </ng-container>
-
-
-                        <ng-container matColumnDef="observaciones">
-                            <th mat-header-cell *matHeaderCellDef> Observaciones </th>
-                            <div *ngFor="let arti of  ">{{arti}}</div>
-                        </ng-container>
-
-                        <ng-container matColumnDef="acciones">
-                            <th mat-header-cell *matHeaderCellDef></th>
-                            <td mat-cell *matCellDef="let element" style="text-align: right">
-
-                                <a *ngIf="!element.enviado" class="pointer" (click)="actualizararticulo()" style="color: #1f656f" matTooltip="editar usuario">
-                                    <mat-icon>edit</mat-icon>
-                                </a>
-                                <a *ngIf="!element.enviado" class="pointer" (click)="eliminararticulo()" style="color: red" matTooltip="borrar usuario">
-                                    <mat-icon>delete</mat-icon>
-                                </a>
-                            </td>
-                        </ng-container>
-
-
-
-
-
-                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                    </table>
--->
-
-
 
 
 
@@ -244,248 +422,6 @@
 
 
 
-    <!--
 
-
-    <h1> <span class="urgente"> Pedido de Articulo
-            <mat-slide-toggle>Urgente</mat-slide-toggle></span>
-    </h1>
-
-
-    <div class="container">
-
-        <form (ngSubmit)="onSubmit()">
-            <div class="form-group">
-                <label for="name">piso destino</label>
-                <input type="text" class="form-control" id="piso_destino" required [(ngModel)]="model.piso_destino" name="piso_destino" #name="ngModel" />
-            </div>
-
-            <div class="form-group">
-                <label for="username">cargado almacen</label>
-                <input type="text" class="form-control" id="cod_almacen" [(ngModel)]="model.cod_almacen" name="cod_almacen" />
-            </div>
-
-            <div class="form-group">
-                <label for="name">Codigo clave</label>
-                <input type="text" class="form-control" id="cod_clave" required [(ngModel)]="model.cod_clave" name="cod_clave" #name="ngModel" />
-            </div>
-            <div class="form-group">
-                <label for="name">proc destino</label>
-                <input type="text" class="form-control" id="proc_destino" required [(ngModel)]="model.proc_destino" name="proc_destino" #name="ngModel" />
-            </div>
-            <div class="form-group">
-                <label for="name">prog destino</label>
-                <input type="text" class="form-control" id="prog_destino" required [(ngModel)]="model.prog_destino" name="prog_destino" #name="ngModel" />
-            </div>
-            <div class="form-group">
-                <label for="name">observaciones</label>
-                <input type="text" class="form-control" id="obs" required [(ngModel)]="model.obs" name="obs" #name="ngModel" />
-            </div>
-            <div class="form-group">
-                <label for="name">pedido por</label>
-                <input type="text" class="form-control" id="pedido_por" required [(ngModel)]="model.pedido_por" name="pedido_por" #name="ngModel" />
-            </div>
-
-            <div class="form-group">
-                <label for="name">codigo articulo</label>
-                <input type="text" class="form-control" id="cod_articulo" required [(ngModel)]="modeli.cod_articulo" name="cant_pedida" #name="ngModel" />
-            </div>
-            <div class="form-group">
-                <label for="name">cantidad</label>
-                <input type="text" class="form-control" id="cant_pedida" required [(ngModel)]="modeli.cant_pedida" name="cant_pedida" #name="ngModel" />
-            </div>
-
-            <button type="submit" class="btn btn-success">
-            Submit
-        </button>
-        </form>
-    </div>-->
 </div>
-
-
-<!---
-    ============================================================================================================
-
-<mat-card>
-    <span>Crear Nuevo Pedido</span>
-
-    <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit">
-        <mat-form-field class="crear">
-            <input matInput placeholder="motivo solicitud" formControlName="motivo_solicitud">
-        </mat-form-field>
-    </form>
-    <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit">
-        <mat-form-field class="crear">
-            <input matInput placeholder="piso destino" formControlName="piso_destino">
-        </mat-form-field>
-    </form>
-    <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit">
-        <mat-form-field class="crear">
-            <input matInput placeholder="observciones" formControlName="Obs">
-        </mat-form-field>
-    </form>
-    <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit">
-        <mat-form-field class="crear">
-            <input matInput placeholder="cargado al pro " formControlName="cargado_pro">
-        </mat-form-field>
-    </form>
-    <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit">
-        <mat-form-field class="crear">
-            <input matInput placeholder="articulo" formControlName="articulo">
-        </mat-form-field>
-    </form>
-    <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit">
-        <mat-form-field class="crear">
-            <input matInput placeholder="cantidad" formControlName="cantidad">
-        </mat-form-field>
-    </form>
-    <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit">
-        <mat-form-field class="crear">
-            <input matInput placeholder="observaciones" formControlName="obser">
-        </mat-form-field>
-
-        <button mat_raised-button [disabled]="!pedidoForm.valid">Enviar  </button>
-
-
-    </form>
-</mat-card>
-
-
-<body class="fo">
-    <div class="container">
-
-        <mat-toolbar>
-            <h1>Pedido de Articulo</h1>
-
-        </mat-toolbar>
-
-
-
-        <mat-slide-toggle>Urgente</mat-slide-toggle>
-
-
-
-        <mat-card style="margin-top: 10px">
-
-            <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit">
-
-                <mat-grid-list cols="4" rowHeight="70px">
-
-
-                    <mat-grid-tile [colspan]="1" [rowspan]="1">
-                        <mat-form-field class="ancho" appearance="fill">
-                            <mat-label>Piso Destino</mat-label>
-                            <mat-select formControlName="piso_destino">
-                                <mat-option *ngFor="let item of piso" [value]="item">
-                                    {{item}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                    </mat-grid-tile>
-
-                    <mat-grid-tile [colspan]="2" [rowspan]="2">
-                        <mat-form-field class="ancho">
-                            <mat-label>Articulo</mat-label>
-                            <mat-select formControlName="articulo">
-                                <mat-option *ngFor="let item of articulo" [value]="item">
-                                    {{item}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                    </mat-grid-tile>
-
-
-                    <mat-grid-tile [colspan]="1" [rowspan]="2">
-                        <mat-form-field class="ancho">
-                            <mat-label>Cantidad</mat-label>
-                            <input matInput formControlName="cantidad">
-                        </mat-form-field>
-                    </mat-grid-tile>
-
-
-
-                    <mat-grid-tile [colspan]="1" [rowspan]="1">
-                        <mat-form-field class="ancho" appearance="fill">
-                            <mat-label>Cargado al Pro/Prg/pry</mat-label>
-                            <mat-select formControlName="cargado_pro">
-                                <mat-option *ngFor="let item of cargado" [value]="item">
-                                    {{item}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                    </mat-grid-tile>
-
-
-
-                    <mat-grid-tile [colspan]="1" [rowspan]="2">
-                        <mat-form-field class="ancho">
-                            <mat-label>Motivo</mat-label>
-                            <input matInput formControlName="motivo_solicitud">
-                        </mat-form-field>
-                    </mat-grid-tile>
-
-                    <mat-grid-tile [colspan]="3" [rowspan]="2">
-                        <mat-form-field class="ancho">
-                            <mat-label>Observaciones</mat-label>
-                            <input matInput formControlName="Obs">
-                        </mat-form-field>
-                    </mat-grid-tile>
-
-                    <mat-grid-tile [colspan]="1" [rowspan]="2">
-                        <mat-form-field class="ancho">
-                            <mat-label>Observaciones</mat-label>
-                            <input matInput formControlName="obser">
-                        </mat-form-field>
-                    </mat-grid-tile>
-
-
-
-                    <mat-grid-tile [colspan]="3" [rowspan]="4">
-                        <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
-
-                            
-                            <ng-container matColumnDef="articulo">
-                                <th mat-header-cell *matHeaderCellDef> Articulo </th>
-                                <td mat-cell *matCellDef="let element"> {{element.articulo}} </td>
-                            </ng-container>
-
-                            <ng-container matColumnDef="cantidad">
-                                <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-                                <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
-                            </ng-container>
-
-                          
-                            <ng-container matColumnDef="observaciones">
-                                <th mat-header-cell *matHeaderCellDef> Observaciones </th>
-                                <td mat-cell *matCellDef="let element"> {{element.observaciones}} </td>
-                            </ng-container>
-
-
-
-                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                        </table>
-                        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
-
-                    </mat-grid-tile>
-
-                    <mat-grid-tile [colspan]="1" [rowspan]="1">
-                        Aceptar y volver
-                    </mat-grid-tile>
-
-                </mat-grid-list>
-
-
-
-                <button class="button" mat-menu-item mat_raised-button [disabled]="!pedidoForm.valid">Enviar <mat-icon>mail</mat-icon> </button>
-
-            </form>
-
-
-
-
-        </mat-card>
-
-
-    </div>
-</body> --->
+-->

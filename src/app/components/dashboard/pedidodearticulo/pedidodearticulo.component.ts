@@ -46,6 +46,8 @@ export class PedidodearticuloComponent implements OnInit {
     this.filtros.fechaFin = undefined;
   }
 
+  
+
   ngOnInit(): void {
     this.cargarPedidos();
   }

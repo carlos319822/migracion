@@ -1,5 +1,5 @@
 
-import { Component, OnInit, ViewChild, NgModule } from '@angular/core';
+import { Component, OnInit, ViewChild, NgModule, ElementRef, Renderer2 } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -32,6 +32,7 @@ export interface Articulos {
 })
 export class CrearPedidoComponent implements OnInit {
 
+  public show=false;
   
 
   model: Pedidodearticulo = {
@@ -104,16 +105,10 @@ export class CrearPedidoComponent implements OnInit {
 
    // arr= Object.entries(this.adart);
 
-  constructor(private service: PedidodearticuloService, private router: Router, private http: HttpClient,public auth: UserService,private SerA:AlmacenService,private Sera:ArticuloService,private det:DetPedidoService) { 
-    // this.adart=[{cod_articulo: 11,
-    //   cant_pedida: 1,
-    //   cant_aceptada: 0,
-    //   cant_entregada: 0,
-    //   cant_por_entregar: 0,
-    //   costo_cant_entrega: 0,
-    //   pedido_para_compra: false,
-    //   autoriza_compra: false,
-    //   obs: ''}]
+  constructor(private service: PedidodearticuloService, private router: Router, private http: HttpClient,public auth: UserService,private SerA:AlmacenService,private Sera:ArticuloService,
+    private det:DetPedidoService,private renderer:Renderer2) { 
+    
+     
       
   }
 
@@ -194,8 +189,13 @@ export class CrearPedidoComponent implements OnInit {
 
     this.service.crearpedido(this.model).subscribe((data: any) => {
       alert("Pedido Creado");
-      this.router.navigate(['/dashboard/pedidoarticulo']);
+      /*this.router.navigate(['/dashboard/pedidoarticulo']);*/
+      this.show=false;
+      window.location.reload();
+
     })
+
+
 
   }
 
@@ -247,7 +247,13 @@ export class CrearPedidoComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  
+  showModal(){
+    this.show=true;
+  }
+
+  hideModal(){
+    this.show=false;
+  }
 
 
 
