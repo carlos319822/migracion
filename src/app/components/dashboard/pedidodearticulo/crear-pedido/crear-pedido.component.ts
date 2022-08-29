@@ -32,6 +32,8 @@ export interface Articulos {
 })
 export class CrearPedidoComponent implements OnInit {
 
+
+  @ViewChild('modalBack' )modalBack!: ElementRef;
   public show=false;
   
 
@@ -108,6 +110,13 @@ export class CrearPedidoComponent implements OnInit {
   constructor(private service: PedidodearticuloService, private router: Router, private http: HttpClient,public auth: UserService,private SerA:AlmacenService,private Sera:ArticuloService,
     private det:DetPedidoService,private renderer:Renderer2) { 
     
+      this.renderer.listen('window','click',(e:Event)=>{
+        if(this.modalBack && e.target === this.modalBack.nativeElement){
+          this.show=false;
+          console.log('click');
+        }
+        
+      })
      
       
   }
