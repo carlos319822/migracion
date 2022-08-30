@@ -30,8 +30,8 @@ export interface Pedidodearticulo {
     cod_clave:        number;
     cod_almacen:      string;
     fecha_pedido:     string;
-    fecha_entrega?:    string;
-    fecha_despacho?:   string;
+    fecha_entrega:    string;
+    fecha_despacho:   string;
     piso_destino:     string;
     proc_destino:     string;
     prog_destino:     string;

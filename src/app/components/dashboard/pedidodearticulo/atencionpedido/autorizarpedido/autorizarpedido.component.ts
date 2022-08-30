@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Almacenin } from 'src/app/interfaces/almacenin';
 import { DetPedido, Pedidodearticulo } from 'src/app/interfaces/pedidodearticulo';
@@ -30,6 +33,8 @@ export class AutorizarpedidoComponent implements OnInit {
     cod_clave: 0,
     cod_almacen: '',
     fecha_pedido: new Date().toISOString(),
+    fecha_despacho: new Date().toISOString(),
+    fecha_entrega: new Date().toISOString(),
     piso_destino: '',
     proc_destino: '',
     prog_destino: '',
@@ -64,16 +69,27 @@ export class AutorizarpedidoComponent implements OnInit {
     obs: ''
   }
 
-  
- 
+  id:any;
+
+
+  displayedColumns: string[] = ['motivo de solicitud', 'fecha pedido', 'estado', 'observaciones'];
+
+  dataSource! : MatTableDataSource<any>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private service: PedidodearticuloService, private router: Router, private http: HttpClient,public auth: UserService,private SerA:AlmacenService,private Sera:ArticuloService,
     private det:DetPedidoService) { }
 
   ngOnInit(){
+
+    
     
   
   }
+
+  
 
   obj(pedido: Pedidodearticulo){
     console.log(pedido);

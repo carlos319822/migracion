@@ -41,6 +41,8 @@ export class CrearPedidoComponent implements OnInit {
     cod_clave: 0,
     cod_almacen: '',
     fecha_pedido: new Date().toISOString(),
+    fecha_despacho: new Date().toISOString(),
+    fecha_entrega: new Date().toISOString(),
     piso_destino: '',
     proc_destino: '',
     prog_destino: '',
@@ -139,6 +141,8 @@ export class CrearPedidoComponent implements OnInit {
   cod=JSON.parse(localStorage.getItem('user')!);
 
   this.model={...this.model,cod_clave:cod.cod_clave??0};
+
+  
 
 //tomar los datos de los articulos
 
