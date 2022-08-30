@@ -1,0 +1,112 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Ingresos/Salida</span>
+    </mat-toolbar>
+
+    <div class="add">
+        <button class="add" mat-raised-button color="primary">
+      <mat-icon>add</mat-icon>
+    </button>
+    </div>
+
+
+    <div>
+        <p></p>
+        <p></p>
+        <mat-form-field appearance="standard">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input autocomplete="off" />
+        </mat-form-field>
+
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="motivo de solicitud">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        Motivo de Solicitud
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{ element.motivo_solicitud }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="fecha pedido">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        Fecha Pedido
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{ element.fecha_pedido | date }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="estado">
+                    <th mat-header-cell *matHeaderCellDef>Estado</th>
+
+                    <div mat-cell *matCellDef="let element">
+                        <td *ngIf="element.recepcionado; else sgt1">
+                            <button mat-raised-button color="primary" disableRipple="" style="background-color: #339723; border-radius: 25px">
+                Recepcionado
+              </button>
+                        </td>
+
+                        <ng-template #sgt1>
+                            <td *ngIf="element.atendido; else sgt2">
+                                <button mat-raised-button color="primary" disableRipple="" style="background-color: #fa00c6; border-radius: 25px">
+                  Atendido
+                </button>
+                            </td>
+                        </ng-template>
+
+                        <ng-template #sgt2>
+                            <td *ngIf="element.autorizado; else sgt3">
+                                <button mat-raised-button color="primary" disableRipple="" style="background-color: #4558a8; border-radius: 25px">
+                  Autorizado
+                </button>
+                            </td>
+                        </ng-template>
+
+                        <ng-template #sgt3>
+                            <td *ngIf="element.enviado; else sgt4">
+                                <button mat-raised-button color="primary" disableRipple="" style="background-color: #ffd914; border-radius: 25px">
+                  Enviado
+                </button>
+                            </td>
+                        </ng-template>
+
+                        <ng-template #sgt4>
+                            <td>
+                                <button mat-raised-button color="primary" disableRipple="" style="background-color: #625b71; border-radius: 25px">
+                  No Enviado
+                </button>
+                            </td>
+                        </ng-template>
+                    </div>
+                </ng-container>
+
+                <ng-container matColumnDef="observaciones">
+                    <th mat-header-cell *matHeaderCellDef>Observaciones</th>
+                    <td mat-cell *matCellDef="let element">{{ element.obs }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="acciones">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element" style="text-align: right">
+                        <a class="pointer" style="color: #1878b0" matTooltip="ver usuario">
+                            <mat-icon>search</mat-icon>
+                        </a>
+                        <a *ngIf="!element.enviado" class="pointer" (click)="actualizarpedido()" style="color: #1f656f" matTooltip="editar usuario">
+                            <mat-icon>edit</mat-icon>
+                        </a>
+                        <a *ngIf="!element.enviado" class="pointer" (click)="eliminarPedido()" style="color: red" matTooltip="borrar usuario">
+                            <mat-icon>delete</mat-icon>
+                        </a>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+            </mat-paginator>
+        </div>
+    </div>
+</div>

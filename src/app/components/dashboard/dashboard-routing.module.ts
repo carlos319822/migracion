@@ -5,6 +5,7 @@ import { CrearAlmacenComponent } from './almacen/crear-almacen/crear-almacen.com
 import { VerAlmacenComponent } from './almacen/ver-almacen/ver-almacen.component';
 import { DashboardComponent } from './dashboard.component';
 import { DelegarautoridadComponent } from './delegarautoridad/delegarautoridad.component';
+import { IngresosalidaComponent } from './ingresosalida/ingresosalida.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { AtencionpedidoComponent } from './pedidodearticulo/atencionpedido/atencionpedido.component';
 import { AutorizarpedidoComponent } from './pedidodearticulo/atencionpedido/autorizarpedido/autorizarpedido.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
     {path:'crear-almacen',component: CrearAlmacenComponent},
     {path:'ver-almacen',component: VerAlmacenComponent},
     {path:'almacen',component: AlmacenComponent },
-    {path:'autorizar-pedido',component: AutorizarpedidoComponent  }
+    {path:'autorizar-pedido',component: AutorizarpedidoComponent},
+    {path:'ingresosalida',component:IngresosalidaComponent}
 
   ]}
 
