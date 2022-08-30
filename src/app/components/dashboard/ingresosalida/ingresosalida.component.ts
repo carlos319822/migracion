@@ -12,7 +12,7 @@ export class IngresosalidaComponent implements OnInit {
 
  
 
-  displayedColumns: string[] = ['motivo de solicitud', 'fecha pedido', 'estado', 'observaciones', 'acciones'];
+  displayedColumns: string[] = ['transaccion', 'provedor','fechatransaccion','fechaproceso' ,'estado', 'acciones'];
  
   dataSource! : MatTableDataSource<any>;
 

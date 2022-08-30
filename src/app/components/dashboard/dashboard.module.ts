@@ -21,6 +21,7 @@ import { CrearAlmacenComponent } from './almacen/crear-almacen/crear-almacen.com
 import { AutorizarpedidoComponent } from './pedidodearticulo/atencionpedido/autorizarpedido/autorizarpedido.component';
 import { IngresosalidaComponent } from './ingresosalida/ingresosalida.component';
 import { CrearIngresoComponent } from './ingresosalida/crear-ingreso/crear-ingreso.component';
+import { ControlstocksComponent } from './controlstocks/controlstocks.component';
 
 
 
@@ -42,6 +43,7 @@ import { CrearIngresoComponent } from './ingresosalida/crear-ingreso/crear-ingre
     AutorizarpedidoComponent,
     IngresosalidaComponent,
     CrearIngresoComponent,
+    ControlstocksComponent,
     
   ],
   imports: [

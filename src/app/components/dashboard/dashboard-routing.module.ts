@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AlmacenComponent } from './almacen/almacen.component';
 import { CrearAlmacenComponent } from './almacen/crear-almacen/crear-almacen.component';
 import { VerAlmacenComponent } from './almacen/ver-almacen/ver-almacen.component';
+import { ControlstocksComponent } from './controlstocks/controlstocks.component';
 import { DashboardComponent } from './dashboard.component';
 import { DelegarautoridadComponent } from './delegarautoridad/delegarautoridad.component';
 import { CrearIngresoComponent } from './ingresosalida/crear-ingreso/crear-ingreso.component';
@@ -25,7 +26,8 @@ const routes: Routes = [
     {path:'almacen',component: AlmacenComponent },
     {path:'autorizar-pedido',component: AutorizarpedidoComponent},
     {path:'ingresosalida',component:IngresosalidaComponent},
-    {path:'ingreso-articulo',component:CrearIngresoComponent}
+    {path:'ingreso-articulo',component:CrearIngresoComponent},
+    {path:'control-stock',component:ControlstocksComponent},
 
   ]}
 
