@@ -18,6 +18,7 @@ import { VerAlmacenComponent } from './almacen/ver-almacen/ver-almacen.component
 import {MatExpansionModule} from '@angular/material/expansion';
 
 import { CrearAlmacenComponent } from './almacen/crear-almacen/crear-almacen.component';
+import { AutorizarpedidoComponent } from './pedidodearticulo/atencionpedido/autorizarpedido/autorizarpedido.component';
 
 
 
@@ -36,6 +37,7 @@ import { CrearAlmacenComponent } from './almacen/crear-almacen/crear-almacen.com
     CrearAlmacenComponent,
     VerAlmacenComponent,
     AlmacenComponent,
+    AutorizarpedidoComponent,
     
   ],
   imports: [

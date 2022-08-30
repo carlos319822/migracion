@@ -1,0 +1,163 @@
+.modalc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 12%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+}
+
+.modalc-content {
+    width: 100%;
+    height: auto;
+    background-color: rgb(164, 142, 180);
+    border-radius: 10px 10px 10px 10px;
+}
+
+svg {
+    height: 45px;
+    width: 45px;
+}
+
+.modalc-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: black;
+}
+
+
+/*modal arriba*/
+
+.button {
+    position: relative;
+}
+
+.fondo {
+    background-color: rgb(164, 142, 180);
+    width: 100%;
+    height: 100%;
+}
+
+.urgente {
+    background: white;
+    color: rgb(137, 78, 179);
+}
+
+.buton {
+    width: 100%;
+    border-radius: 10%;
+    float: left;
+    text-align: center;
+}
+
+.env {
+    background-color: rgb(67, 216, 44);
+    color: white;
+}
+
+.guar {
+    background-color: rgb(94, 94, 94);
+    color: white;
+}
+
+.container {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    float: left;
+    text-align: center;
+    margin-left: 60px;
+    padding: 2px;
+    background-color: white;
+}
+
+.p {
+    width: 35%;
+}
+
+.inicial {
+    width: 100%;
+}
+
+.ur {
+    color: black;
+}
+
+.n {
+    color: rgb(137, 78, 179);
+    width: 46%;
+}
+
+.bu {
+    background-color: blue;
+    border-radius: 10px;
+    color: white;
+}
+
+.but {
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    left: 30%;
+}
+
+.des {
+    margin-top: 20Px;
+    width: 35%;
+    height: 60%;
+}
+
+.desp {
+    width: 60%;
+}
+
+.fij {
+    height: 100px;
+    background-color: rgb(231, 231, 231);
+}
+
+.ar {
+    margin-top: 20Px;
+    width: 46%;
+}
+
+.art {
+    width: 400px;
+}
+
+.arto {
+    width: 75%;
+    height: 100px;
+}
+
+.artic {
+    width: 46%;
+    margin-top: 20Px;
+    color: rgb(137, 78, 179);
+}
+
+.lar {
+    background-color: red;
+    color: white;
+}
+
+table {
+    width: 80%;
+    height: 60%;
+    margin-top: 10px;
+    border-radius: 5%;
+}
+
+.ta {
+    margin-top: 10px;
+    width: 46%;
+}
+
+.example-form-field {
+    margin: 5px 0px 5px 5px;
+}
