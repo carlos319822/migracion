@@ -13,6 +13,7 @@ import { AtencionpedidoComponent } from './pedidodearticulo/atencionpedido/atenc
 import { AutorizarpedidoComponent } from './pedidodearticulo/atencionpedido/autorizarpedido/autorizarpedido.component';
 import { CrearPedidoComponent } from './pedidodearticulo/crear-pedido/crear-pedido.component';
 import { PedidodearticuloComponent } from './pedidodearticulo/pedidodearticulo.component';
+import { ArticulosComponent } from './articulos/articulos.component';
 
 const routes: Routes = [
   {path:'',component:DashboardComponent, children:[
@@ -28,6 +29,7 @@ const routes: Routes = [
     {path:'ingresosalida',component:IngresosalidaComponent},
     {path:'ingreso-articulo',component:CrearIngresoComponent},
     {path:'control-stock',component:ControlstocksComponent},
+    {path:'articulos',component:ArticulosComponent},
 
   ]}
 

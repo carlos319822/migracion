@@ -22,6 +22,8 @@ import { AutorizarpedidoComponent } from './pedidodearticulo/atencionpedido/auto
 import { IngresosalidaComponent } from './ingresosalida/ingresosalida.component';
 import { CrearIngresoComponent } from './ingresosalida/crear-ingreso/crear-ingreso.component';
 import { ControlstocksComponent } from './controlstocks/controlstocks.component';
+import { ArticulosComponent } from './articulos/articulos.component';
+import { CrearCategoriaAComponent } from './articulos/crear-categoria-a/crear-categoria-a.component';
 
 
 
@@ -44,6 +46,8 @@ import { ControlstocksComponent } from './controlstocks/controlstocks.component'
     IngresosalidaComponent,
     CrearIngresoComponent,
     ControlstocksComponent,
+    ArticulosComponent,
+    CrearCategoriaAComponent,
     
   ],
   imports: [
