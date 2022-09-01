@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ControlStockDTO } from '../../../../interfaces/controldestock';
+import { CategoriaDTO } from '../../../../interfaces/categoriaArticulos';
 
 @Component({
   selector: 'app-crear-categoria-a',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearCategoriaAComponent implements OnInit {
 
+
+  model:CategoriaDTO={
+    cod_categoria: '',
+    nom_categoria: '',
+    des_categoria: '',
+    obs: ''
+  }
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+
   }
 
 }
