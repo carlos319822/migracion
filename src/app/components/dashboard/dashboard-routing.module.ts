@@ -15,6 +15,7 @@ import { CrearPedidoComponent } from './pedidodearticulo/crear-pedido/crear-pedi
 import { PedidodearticuloComponent } from './pedidodearticulo/pedidodearticulo.component';
 import { ArticulosComponent } from './articulos/articulos.component';
 import { CrearCategoriaAComponent } from './articulos/crear-categoria-a/crear-categoria-a.component';
+import { GrupodeaccesoComponent } from './grupodeacceso/grupodeacceso.component';
 
 const routes: Routes = [
   {path:'',component:DashboardComponent, children:[
@@ -31,7 +32,8 @@ const routes: Routes = [
     {path:'ingreso-articulo',component:CrearIngresoComponent},
     {path:'control-stock',component:ControlstocksComponent},
     {path:'articulos',component:ArticulosComponent},
-    {path:'crear-categoria',component:CrearCategoriaAComponent}
+    {path:'crear-categoria',component:CrearCategoriaAComponent},
+    {path:'grupo-acceso',component:GrupodeaccesoComponent}
 
   ]}
 

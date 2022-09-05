@@ -24,6 +24,7 @@ import { CrearIngresoComponent } from './ingresosalida/crear-ingreso/crear-ingre
 import { ControlstocksComponent } from './controlstocks/controlstocks.component';
 import { ArticulosComponent } from './articulos/articulos.component';
 import { CrearCategoriaAComponent } from './articulos/crear-categoria-a/crear-categoria-a.component';
+import { GrupodeaccesoComponent } from './grupodeacceso/grupodeacceso.component';
 
 
 
@@ -48,6 +49,7 @@ import { CrearCategoriaAComponent } from './articulos/crear-categoria-a/crear-ca
     ControlstocksComponent,
     ArticulosComponent,
     CrearCategoriaAComponent,
+    GrupodeaccesoComponent,
     
   ],
   imports: [
