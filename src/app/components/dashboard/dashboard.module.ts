@@ -28,6 +28,8 @@ import { GrupodeaccesoComponent } from './grupodeacceso/grupodeacceso.component'
 import { CreargrupoComponent } from './grupodeacceso/creargrupo/creargrupo.component';
 import { TiposdetransaccionComponent } from './tiposdetransaccion/tiposdetransaccion.component';
 import { CreartipotraComponent } from './tiposdetransaccion/creartipotra/creartipotra.component';
+import { UnidadmedidaComponent } from './unidadmedida/unidadmedida.component';
+import { CrearunidadComponent } from './unidadmedida/crearunidad/crearunidad.component';
 
 
 
@@ -56,6 +58,8 @@ import { CreartipotraComponent } from './tiposdetransaccion/creartipotra/crearti
     CreargrupoComponent,
     TiposdetransaccionComponent,
     CreartipotraComponent,
+    UnidadmedidaComponent,
+    CrearunidadComponent,
     
   ],
   imports: [

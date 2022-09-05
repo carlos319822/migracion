@@ -19,6 +19,8 @@ import { GrupodeaccesoComponent } from './grupodeacceso/grupodeacceso.component'
 import { CreargrupoComponent } from './grupodeacceso/creargrupo/creargrupo.component';
 import { TiposdetransaccionComponent } from './tiposdetransaccion/tiposdetransaccion.component';
 import { CreartipotraComponent } from './tiposdetransaccion/creartipotra/creartipotra.component';
+import { UnidadmedidaComponent } from './unidadmedida/unidadmedida.component';
+import { CrearunidadComponent } from './unidadmedida/crearunidad/crearunidad.component';
 
 const routes: Routes = [
   {path:'',component:DashboardComponent, children:[
@@ -40,6 +42,8 @@ const routes: Routes = [
     {path:'crear-grupo',component:CreargrupoComponent},
     {path:'tipo-transaccion',component:TiposdetransaccionComponent},
     {path:'crear-tipotran',component:CreartipotraComponent},
+    {path:'unidadmedida',component:UnidadmedidaComponent},
+    {path:'crear-unidad',component:CrearunidadComponent},
 
   ]}
 

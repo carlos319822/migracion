@@ -1,0 +1,51 @@
+<div class="container">
+
+    <mat-toolbar>
+        <span>UNIDAD DE MEDIDA</span>
+    </mat-toolbar>
+
+
+    <div class="add"><button class="add" mat-raised-button color="primary" routerLink="/dashboard/crear-unidad"><mat-icon>add</mat-icon></button></div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="codigo">
+            <th mat-header-cell *matHeaderCellDef> CODIGO </th>
+            <td mat-cell *matCellDef="let element"> {{element.cod_und_medida}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="unidad">
+            <th mat-header-cell *matHeaderCellDef> UNIDAD </th>
+            <td mat-cell *matCellDef="let element"> {{element.des_und_medida}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="descripcion">
+            <th mat-header-cell *matHeaderCellDef> OBSERVACIONES </th>
+            <td mat-cell *matCellDef="let element"> {{element.obs}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element" style="text-align: right;">
+                <a class="pointer" (click)="veralmacen()" style="color:#1878b0" matTooltip="ver almacen">
+                    <mat-icon>search</mat-icon>
+                </a>
+                <a class="pointer" (click)="actualizaralmacen()" style="color:#1f656f" matTooltip="editar almacen">
+                    <mat-icon>edit</mat-icon>
+                </a>
+
+
+
+            </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+
+</div>

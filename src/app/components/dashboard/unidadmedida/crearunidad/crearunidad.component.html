@@ -12,7 +12,7 @@
 
                 <form (ngSubmit)="onSubmit()">
                     <div class="container p">
-                        <h1> <span class="urgente"> Tipo de Transaccion</span>
+                        <h1> <span class="urgente"> Unidad de Medida</span>
                         </h1>
 
                     </div>
@@ -33,7 +33,7 @@
                     <br>
                     <mat-form-field class="example-full-width" appearance="fill" class="desp">
                         <mat-label>Codigo tipo transaccion:</mat-label>
-                        <textarea matInput class="fij" class="form-control" id="codigo" [(ngModel)]="model.cod_tipo_transaccion" name="codigo" #name="ngModel"></textarea>
+                        <textarea matInput class="fij" class="form-control" id="codigo" [(ngModel)]="model.cod_und_medida" name="codigo" #name="ngModel"></textarea>
                     </mat-form-field>
 
 
@@ -42,15 +42,16 @@
 
                     <mat-form-field class="example-full-width" appearance="fill" class="desp">
                         <mat-label>Descripcion:</mat-label>
-                        <textarea matInput class="fij" class="form-control" id="descripcion" [(ngModel)]="model.descripcion" name="descripcion" #name="ngModel"></textarea>
+                        <textarea matInput class="fij" class="form-control" id="descripcion" [(ngModel)]="model.des_und_medida" name="descripcion" #name="ngModel"></textarea>
                     </mat-form-field>
 
                     <br>
-
                     <br>
 
-                    <mat-slide-toggle class="ur" id="ingreso" [(ngModel)]="model.ingreso" name="ingreso" #name="ngModel">Ingreso</mat-slide-toggle>
-
+                    <mat-form-field class="example-full-width" appearance="fill" class="desp">
+                        <mat-label>Observaciones:</mat-label>
+                        <textarea matInput class="fij" class="form-control" id="observaciones" [(ngModel)]="model.obs" name="observaciones" #name="ngModel"></textarea>
+                    </mat-form-field>
 
 
 
