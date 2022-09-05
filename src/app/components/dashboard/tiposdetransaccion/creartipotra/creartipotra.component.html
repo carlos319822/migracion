@@ -1,0 +1,78 @@
+<div class="fondo">
+
+
+    <br>
+    <div class="inicial">
+
+        <form (ngSubmit)="onSubmit()">
+
+
+
+            <div>
+
+                <form (ngSubmit)="onSubmit()">
+                    <div class="container p">
+                        <h1> <span class="urgente"> Categoria de Articulos </span>
+                        </h1>
+
+                    </div>
+                </form>
+
+
+            </div>
+
+
+
+
+            <div>
+                <br>
+                <br>
+                <div class="container des form-group">
+
+
+                    <br>
+                    <mat-form-field class="example-full-width" appearance="fill" class="desp">
+                        <mat-label>Codigo tipo transaccion:</mat-label>
+                        <textarea matInput class="fij" class="form-control" id="codigo" [(ngModel)]="model.cod_tipo_transaccion" name="codigo" #name="ngModel"></textarea>
+                    </mat-form-field>
+
+
+                    <br>
+                    <br>
+
+                    <mat-form-field class="example-full-width" appearance="fill" class="desp">
+                        <mat-label>Descripcion:</mat-label>
+                        <textarea matInput class="fij" class="form-control" id="descripcion" [(ngModel)]="model.descripcion" name="descripcion" #name="ngModel"></textarea>
+                    </mat-form-field>
+
+                    <br>
+
+                    <br>
+
+                    <mat-slide-toggle class="ur" id="ingreso" [(ngModel)]="model.ingreso" name="ingreso" #name="ngModel">Ingreso</mat-slide-toggle>
+
+
+
+
+                </div>
+
+
+
+            </div>
+
+            <div class=" buton">
+                <button mat-raised-button class="env" (click)="onSubmit">Enviar </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button mat-raised-button class="guar">Guardar</button>
+
+            </div>
+
+        </form>
+
+
+
+    </div>
+
+
+
+
+</div>

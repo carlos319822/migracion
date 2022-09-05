@@ -16,6 +16,9 @@ import { PedidodearticuloComponent } from './pedidodearticulo/pedidodearticulo.c
 import { ArticulosComponent } from './articulos/articulos.component';
 import { CrearCategoriaAComponent } from './articulos/crear-categoria-a/crear-categoria-a.component';
 import { GrupodeaccesoComponent } from './grupodeacceso/grupodeacceso.component';
+import { CreargrupoComponent } from './grupodeacceso/creargrupo/creargrupo.component';
+import { TiposdetransaccionComponent } from './tiposdetransaccion/tiposdetransaccion.component';
+import { CreartipotraComponent } from './tiposdetransaccion/creartipotra/creartipotra.component';
 
 const routes: Routes = [
   {path:'',component:DashboardComponent, children:[
@@ -33,7 +36,10 @@ const routes: Routes = [
     {path:'control-stock',component:ControlstocksComponent},
     {path:'articulos',component:ArticulosComponent},
     {path:'crear-categoria',component:CrearCategoriaAComponent},
-    {path:'grupo-acceso',component:GrupodeaccesoComponent}
+    {path:'grupo-acceso',component:GrupodeaccesoComponent},
+    {path:'crear-grupo',component:CreargrupoComponent},
+    {path:'tipo-transaccion',component:TiposdetransaccionComponent},
+    {path:'crear-tipotran',component:CreartipotraComponent},
 
   ]}
 

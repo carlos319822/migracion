@@ -25,6 +25,9 @@ import { ControlstocksComponent } from './controlstocks/controlstocks.component'
 import { ArticulosComponent } from './articulos/articulos.component';
 import { CrearCategoriaAComponent } from './articulos/crear-categoria-a/crear-categoria-a.component';
 import { GrupodeaccesoComponent } from './grupodeacceso/grupodeacceso.component';
+import { CreargrupoComponent } from './grupodeacceso/creargrupo/creargrupo.component';
+import { TiposdetransaccionComponent } from './tiposdetransaccion/tiposdetransaccion.component';
+import { CreartipotraComponent } from './tiposdetransaccion/creartipotra/creartipotra.component';
 
 
 
@@ -50,6 +53,9 @@ import { GrupodeaccesoComponent } from './grupodeacceso/grupodeacceso.component'
     ArticulosComponent,
     CrearCategoriaAComponent,
     GrupodeaccesoComponent,
+    CreargrupoComponent,
+    TiposdetransaccionComponent,
+    CreartipotraComponent,
     
   ],
   imports: [
