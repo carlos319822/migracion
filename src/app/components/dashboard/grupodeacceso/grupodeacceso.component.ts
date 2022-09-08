@@ -22,7 +22,7 @@ export class GrupodeaccesoComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   model:GrupoAccesoDTO={
-    cod_Grupo: '',
+    cod_grupo: '',
     descripcion: ''
   }
  

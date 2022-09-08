@@ -4,7 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Almacenin } from 'src/app/interfaces/almacenin';
 import { DetPedido, Pedidodearticulo } from 'src/app/interfaces/pedidodearticulo';
 import { AlmacenService } from 'src/app/services/almacen.service';
@@ -69,7 +69,7 @@ export class AutorizarpedidoComponent implements OnInit {
     obs: ''
   }
 
-  id:any;
+  id!:number;
 
 
   displayedColumns: string[] = ['motivo de solicitud', 'fecha pedido', 'estado', 'observaciones'];
@@ -79,13 +79,20 @@ export class AutorizarpedidoComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+ 
+
+  
+
   constructor(private service: PedidodearticuloService, private router: Router, private http: HttpClient,public auth: UserService,private SerA:AlmacenService,private Sera:ArticuloService,
-    private det:DetPedidoService) { }
+    private det:DetPedidoService,private route:ActivatedRoute) { }
 
   ngOnInit(){
 
-    
-    
+   /* this.id=this.route.snapshot.paramMap.get('id');
+    this.service.getPedido(this.id).subscribe((data:any)=>{
+      console.log(data);
+    })
+    */
   
   }
 

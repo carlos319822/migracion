@@ -49,8 +49,8 @@
                     <mat-form-field appearance="fill" class="desp">
                         <mat-label>Transacción:</mat-label>
                         <mat-select class="form-control">
-                            <mat-option *ngFor="let item " [value]="item">
-                                {{item}}
+                            <mat-option *ngFor="let tipo of ListTipo" [value]="tipo.cod_tipo_transaccion">
+                                {{tipo.descripcion}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
@@ -60,8 +60,8 @@
                     <mat-form-field appearance="fill" class="desp">
                         <mat-label>Provedor:</mat-label>
                         <mat-select class="form-control">
-                            <mat-option *ngFor="let almacenes " [value]="almacenes.cod_almacen">
-                                {{almacenes.nom_almacen}}
+                            <mat-option *ngFor="let pro of ListPro " [value]="pro.cod_proveedor">
+                                {{pro.razon_social}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>

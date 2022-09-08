@@ -35,6 +35,10 @@ export class PedidodearticuloService {
     return this.http.get(this.baseUrl, {headers:headers});*/
   }
 
+  getPedido(id: number){
+    return this.http.get(this.baseUrl+id);
+  }
+
   eliminarPedido(index:number){
     
   }

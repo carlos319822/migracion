@@ -32,7 +32,9 @@ const routes: Routes = [
     {path:'crear-almacen',component: CrearAlmacenComponent},
     {path:'ver-almacen',component: VerAlmacenComponent},
     {path:'almacen',component: AlmacenComponent },
+
     {path:'autorizar-pedido',component: AutorizarpedidoComponent},
+
     {path:'ingresosalida',component:IngresosalidaComponent},
     {path:'ingreso-articulo',component:CrearIngresoComponent},
     {path:'control-stock',component:ControlstocksComponent},

@@ -1,4 +1,4 @@
 export interface GrupoAccesoDTO { 
-    cod_Grupo: string;
+    cod_grupo: string;
     descripcion: string;
 }

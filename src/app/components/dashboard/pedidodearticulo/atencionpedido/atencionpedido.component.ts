@@ -8,6 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { PedidodearticuloService } from 'src/app/services/pedidodearticulo.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Pedidodearticulo } from 'src/app/interfaces/pedidodearticulo';
+import { AutorizarpedidoComponent } from './autorizarpedido/autorizarpedido.component';
 
 
 
@@ -104,6 +105,9 @@ export class AtencionpedidoComponent implements OnInit {
   }
   autorizarpedido(pedido: Pedidodearticulo){
     console.log(pedido);
+
+    
+    
   }
 
 }
