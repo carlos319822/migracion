@@ -204,6 +204,7 @@ export class CrearPedidoComponent implements OnInit {
       /*this.router.navigate(['/dashboard/pedidoarticulo']);*/
       this.show=false;
       window.location.reload();
+      localStorage.removeItem('articulos');
 
     })
 

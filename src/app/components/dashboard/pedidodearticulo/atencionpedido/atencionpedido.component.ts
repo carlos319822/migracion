@@ -9,6 +9,9 @@ import { PedidodearticuloService } from 'src/app/services/pedidodearticulo.servi
 import { MatDialog } from '@angular/material/dialog';
 import { Pedidodearticulo } from 'src/app/interfaces/pedidodearticulo';
 import { AutorizarpedidoComponent } from './autorizarpedido/autorizarpedido.component';
+import { Router } from '@angular/router';
+import { Articulo } from 'src/app/interfaces/articulo';
+import { DetPedido } from '../../../../interfaces/pedidodearticulo';
 
 
 
@@ -49,7 +52,7 @@ export class AtencionpedidoComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _snackBar: MatSnackBar,private service:PedidodearticuloService, private dialog:MatDialog) { 
+  constructor(private _snackBar: MatSnackBar,private service:PedidodearticuloService, private dialog:MatDialog,private router:Router) { 
     this.filtros.estado = undefined;
     this.filtros.fechaIni = undefined;
     this.filtros.fechaFin = undefined;
@@ -98,15 +101,30 @@ export class AtencionpedidoComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  actualizarpedido(pedido: Pedidodearticulo){
-    console.log(pedido);
-
-    
-  }
+ 
   autorizarpedido(pedido: Pedidodearticulo){
     console.log(pedido);
-
     
+
+    this.dialog.open(AutorizarpedidoComponent, {
+      data: {
+        piso_destino: pedido.piso_destino,
+        cod_almacen: pedido.cod_almacen,
+        motivo_solicitud: pedido.motivo_solicitud,
+        obs:pedido.obs,
+        autorizar:pedido.autorizado,
+        id_pedido: pedido.detPedido,
+        cod_clave:pedido.cod_clave,
+        fecha_pedido:pedido.fecha_pedido,
+        cod_articulo:pedido.detPedido,
+        cant_articulo:pedido.detPedido,
+        obss:pedido.detPedido
+
+
+
+      }
+    })
+
     
   }
 

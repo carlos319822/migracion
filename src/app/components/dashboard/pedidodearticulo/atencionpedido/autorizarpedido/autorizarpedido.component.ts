@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,6 +12,8 @@ import { ArticuloService } from 'src/app/services/articulo.service';
 import { DetPedidoService } from 'src/app/services/detpedido.service';
 import { PedidodearticuloService } from 'src/app/services/pedidodearticulo.service';
 import { UserService } from 'src/app/services/user.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { InjectFlags } from '@angular/compiler/src/core';
 
 
 @Component({
@@ -68,8 +70,8 @@ export class AutorizarpedidoComponent implements OnInit {
     tlf_almacen: '',
     obs: ''
   }
-
-  id!:number;
+  form:FormGroup;
+  id_pedido:number;
 
 
   displayedColumns: string[] = ['motivo de solicitud', 'fecha pedido', 'estado', 'observaciones'];
@@ -84,16 +86,37 @@ export class AutorizarpedidoComponent implements OnInit {
   
 
   constructor(private service: PedidodearticuloService, private router: Router, private http: HttpClient,public auth: UserService,private SerA:AlmacenService,private Sera:ArticuloService,
-    private det:DetPedidoService,private route:ActivatedRoute) { }
+    private det:DetPedidoService,private route:ActivatedRoute, private fb:FormBuilder, private dialoref:MatDialogRef<AutorizarpedidoComponent>,
+      @Inject(MAT_DIALOG_DATA) private data:{piso_destino:string,cod_almacen:string,motivo_solicitud:string,obs:string,autorizado:boolean,cod_clave:string,fecha_pedido:string,id_pedido:number}
+      ) {
+        this.id_pedido=data.id_pedido;
+        this.form=fb.group({
+          piso_destino:[data.piso_destino,Validators.required],
+          cod_almacen:[data.cod_almacen,Validators.required],
+          motivo_solicitud:[data.motivo_solicitud,Validators.required],
+          obs:[data.obs,Validators.required],
+          autorizado:[data.autorizado,Validators.required],
+          cod_clave:[data.cod_clave,Validators.required],
+          fecha_pedido:[data.fecha_pedido,Validators.required],
+          
+
+        })
+       }
 
   ngOnInit(){
 
-   /* this.id=this.route.snapshot.paramMap.get('id');
-    this.service.getPedido(this.id).subscribe((data:any)=>{
-      console.log(data);
-    })
-    */
+      
   
+  }
+
+  autorizar(){
+    this.form.value.id_pedido = this.id_pedido;
+    this.form.value.autorizado= true;
+    this.service.actualizarPedido(this.id_pedido, this.form.value).subscribe((data)=>{
+      window.location.reload();
+    });
+    this.dialoref.close();
+
   }
 
   
